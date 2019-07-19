@@ -62,27 +62,43 @@ console.log('Content Script Mounted!');
 
 window.addEventListener("mouseup", function() {
     let article = new Article(tab.getUrl(), getSelectedText());
-
+    
     console.log(article.getText());
          
     // Create pinned box for data
     function createPin(article) {
         try {
-            // Clean out all pre-existing notes
-            [...document.getElementsByClassName('pinnedNote')].map(el => el.remove());
+            // Clean out all pre-existing iframe
+            [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
 
-            // Create a new note
+            //  The pinned note must be created within an iframe context 
+            //  to prevent it from inheriting styles 
+
+            let iframe = document.createElement('iframe');
+            iframe.setAttribute('class', 'generatedIframe');
+            (document.getElementsByTagName('body')[0]).appendChild(iframe);
+
+            let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Write onto the iframe
+            iframeContext.open();
+            iframeContext.write('<html><body></body></html>');
+            iframeContext.close();
+
+            iframeBody = iframeContext.body;
+        
             let pinnedNote = document.createElement('div');
             pinnedNote.setAttribute('class', 'pinnedNote');
 
             // Set the data for the note
             pinnedNote.innerHTML = '<h1>' + article.getText() + '</h1>';
 
-            // Mount the style for the note 
-                
+            // Mount styles for the generated note
+            
 
-            // Mount the generate note to the DOM
-            (document.getElementsByTagName('body')[0]).appendChild(pinnedNote);
+            // Mount the generate note to the iframe
+            iframeBody.appendChild(pinnedNote);
+            
         } catch (err) {
             console.error(err);
         } finally {
