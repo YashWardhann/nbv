@@ -6,6 +6,7 @@
 
     "browser_action": {
         "default_title": "News Bias",
+        "default_icon": "logo.png",
         "default_popup": "popup.html"
     },
 
@@ -14,7 +15,11 @@
     ],
 
     "content_scripts": [{
-            "js": ["scripts/main.js"],
-            "matches": ["https://*/*"]
-    }]
+            "js": ["scripts/content.js"],
+            "matches": ["<all_urls>"]
+    }],
+
+    "background": {
+        "scripts": ["scripts/background.js"]
+    }
 }
