@@ -3,13 +3,32 @@
 
 console.log('%c Content Script Mounted', 'color: red; font-size: 16px; font-weight: bold;');
 
-function getSelectedText() {
-    let text; 
+function getArticleParams() {
+   
     if(window.getSelection) {
-        text = window.getSelection().toString();
-        console.log(window.getSelection());
+        return {
+            text: window.getSelection().toString(), 
+            url: getHostName(window.getSelection().focusNode.baseURI)
+        };
     }
-    return text;
+}
+
+function getHostName(url) {
+    let index = [];
+
+    let i = 0;    
+    while (i < url.length) {
+        if (url[i] === '.') {
+            index.push(i);
+        }        
+        i++;
+    }
+    
+    if (index.length == 1) {
+        return url.slice(url.indexOf('/') + 2, index[0]);
+    } else if(index.length == 2) {
+        return url.slice(index[0] + 1, index[1]);
+    }  
 }
 
 let article = {
@@ -18,16 +37,6 @@ let article = {
 };
 
 
-// Send request to get the current url
-chrome.runtime.onMessage.addListener(
-    function(message, sender, sendResponse) {
-        article.url = message.url;
-        
-        if (article.text) {
-            createPin(article);
-        }
-    }
-);
 
 // Create pinned box for data
 function createPin(article) {
@@ -50,7 +59,7 @@ function createPin(article) {
         iframeContext.close();
 
         iframeBody = iframeContext.body;
-            
+        
         let pinnedNote = document.createElement('div');
         pinnedNote.setAttribute('class', 'pinnedNote');
 
@@ -73,10 +82,14 @@ function createPin(article) {
 
 window.addEventListener("mouseup", function() {      
     try {
-        if (getSelectedText()) {
-            article.text = getSelectedText();
-        }
+        let { text, url } = getArticleParams();
+        article.text = text; 
+        article.url = url;
+
+        createPin(article);
     } catch (err) {
 		console.error('Error');
 	} 
 });  
+
+// Make request to remote REST API to fetch results dynamically
