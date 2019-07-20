@@ -55,13 +55,14 @@ function createPin(article) {
         pinnedNote.setAttribute('class', 'pinnedNote');
 
         // Set the data for the note
-        pinnedNote.innerHTML = `<h1>${ article.text }</h1><br><h2>${ article.url.toUpperCase() }</h2>`;
+        pinnedNote.innerHTML = `<b>${ article.text }</b><h5>BY ${ article.url.toUpperCase() } </h5>`;
 
         // Style the note 
-        pinnedNote.style.fontSize = '8px';
+        pinnedNote.style.fontSize = '18px';
         pinnedNote.style.color = '#fff';
-        pinnedNote.style.fontFamily = 'Segoe ui, sans-serif, Impact';
+        pinnedNote.style.fontFamily = 'Segoe ui, sans-serif';
 
+        
         // Mount the generate note to the iframe
         iframeBody.appendChild(pinnedNote);
         console.log('Created pinned note!');

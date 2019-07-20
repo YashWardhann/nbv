@@ -5,9 +5,9 @@
     left: 80%;
     transform: translate(-50%, -50%);
     width: auto;
-    height: 35%;
+    height: 25%;
     z-index: 999;
-    background: #333;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     padding: 30px;
     box-sizing: border-box;
     max-width: 20%;
@@ -15,5 +15,6 @@
     font-size: 12px;
     border: none;
     transition: all 0.5s;
-    display: inline;
+    border-radius: 3%;
+    display: block;
 }
