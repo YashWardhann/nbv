@@ -2,10 +2,6 @@ function Tab(url, id) {
     this.url = url;
     this.id = id;
 
-    this.getUrl = function() {
-        return this.url;
-    }
-
     this.updateParams = function(newParams) {
         this.url = newParams.url;
         this.id = newParams.id;
@@ -22,13 +18,6 @@ function Article (url, text) {
         console.log('Text updated!');
     }
 
-    this.getText = function() {
-        return this.text;
-    }
-
-    this.getUrl = function() {
-        return this.url;
-    }
 }
 
 // Create a new Tab instance
@@ -61,10 +50,8 @@ chrome.runtime.onMessage.addListener(
 console.log('Content Script Mounted!'); 
 
 window.addEventListener("mouseup", function() {
-    let article = new Article(tab.getUrl(), getSelectedText());
+    let article = new Article(tab.url, getSelectedText());
     
-    console.log(article.getText());
-         
     // Create pinned box for data
     function createPin(article) {
         try {
@@ -77,6 +64,7 @@ window.addEventListener("mouseup", function() {
             let iframe = document.createElement('iframe');
             iframe.setAttribute('class', 'generatedIframe');
             (document.getElementsByTagName('body')[0]).appendChild(iframe);
+          
 
             let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
 
@@ -86,15 +74,16 @@ window.addEventListener("mouseup", function() {
             iframeContext.close();
 
             iframeBody = iframeContext.body;
-        
+               
             let pinnedNote = document.createElement('div');
             pinnedNote.setAttribute('class', 'pinnedNote');
 
             // Set the data for the note
-            pinnedNote.innerHTML = '<h1>' + article.getText() + '</h1>';
+            pinnedNote.innerHTML = '<h1>' + article.text + '</h1>';
 
-            // Mount styles for the generated note
-            
+            pinnedNote.style.fontSize = '8px';
+            pinnedNote.style.color = '#fff';
+            pinnedNote.style.fontFamily = 'Segoe ui, sans-serif, Impact';
 
             // Mount the generate note to the iframe
             iframeBody.appendChild(pinnedNote);
@@ -105,8 +94,11 @@ window.addEventListener("mouseup", function() {
             console.log('Created pinned note!');
         }
     }
-        
-    createPin(article);
     
+    if (article.text) {
+        createPin(article);
+    } else {
+        return null;
+    }
        
     });  
