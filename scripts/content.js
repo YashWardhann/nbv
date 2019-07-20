@@ -26,12 +26,14 @@ function getSelectedText() {
 // Send request to get the current url
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
-        createPin(article);
-        console.log(message);
+       
         tab.updateParams({
             url: message.url,
             id: message.id
         });
+
+        createPin(article);
+
     }
 );
 
@@ -69,7 +71,7 @@ function createPin(article) {
         pinnedNote.setAttribute('class', 'pinnedNote');
 
         // Set the data for the note
-        pinnedNote.innerHTML = '<h1>' + article.text + '</h1>';
+        pinnedNote.innerHTML = `<h1>${ article.text }</h1><br><h2>${ tab.url.toUpperCase() }</h2>`;
 
         pinnedNote.style.fontSize = '8px';
         pinnedNote.style.color = '#fff';
@@ -85,15 +87,10 @@ function createPin(article) {
     }
 }
 
-window.addEventListener("mouseup", function() {  
-    
+window.addEventListener("mouseup", function() {      
     try {
         if (getSelectedText()) {
             article.text = getSelectedText();
-            
-            if (tab.url) {
-                createPin(article);
-            }
         }
     } catch (err) {
 		console.error('Error');
