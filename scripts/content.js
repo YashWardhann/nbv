@@ -1,3 +1,8 @@
+// The following file is injected into the active tab opened 
+// and has access to its DOM
+
+console.log('%c Content Script Mounted', 'color: red; font-size: <16></16>px; ;font-weight: bold;');
+
 function Tab(url, id) {
     this.url = url;
     this.id = id;
@@ -8,10 +13,9 @@ function Tab(url, id) {
     }
 }
 
-function Article (url, text) {
+function Article (text) {
     
     this.text = text;
-    this.url = url;
 
     this.setText = function(newText) {
         this.text = newText;
@@ -34,26 +38,9 @@ function getSelectedText() {
     return text;
 }
 
-
-// Send request to get the current url
-chrome.runtime.onMessage.addListener(
-    function(message, sender, sendResponse) {
-        console.log(message);
-        tab.updateParams({
-            url: message.url,
-            id: message.id
-        });
-    }
-);
-
-
-console.log('Content Script Mounted!'); 
-
-window.addEventListener("mouseup", function() {
-    let article = new Article(tab.url, getSelectedText());
-    
-    // Create pinned box for data
+// Create pinned box for data
     function createPin(article) {
+    	console.time('pinBlock');
         try {
             // Clean out all pre-existing iframe
             [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
@@ -87,18 +74,30 @@ window.addEventListener("mouseup", function() {
 
             // Mount the generate note to the iframe
             iframeBody.appendChild(pinnedNote);
-            
+            console.log('Created pinned note!');
         } catch (err) {
             console.error(err);
         } finally {
-            console.log('Created pinned note!');
+           	console.timeEnd('pinBlock');
         }
     }
-    
-    if (article.text) {
-        createPin(article);
-    } else {
-        return null;
-    }
-       
-    });  
+
+window.addEventListener("mouseup", function() {
+  	
+  	let article = new Article(getSelectedText());
+  	
+  	try {
+		// Send request to get the current url
+		chrome.runtime.onMessage.addListener(
+		    function(message, sender, sendResponse) {
+		        createPin(article);
+		        tab.updateParams({
+		            url: message.url,
+		            id: message.id
+		        });
+		    }
+		);
+	} catch (err) {
+		console.error('Error');
+	} 
+});  
