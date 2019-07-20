@@ -1,17 +1,7 @@
 // The following file is injected into the active tab opened 
 // and has access to its DOM
 
-console.log('%c Content Script Mounted', 'color: red; font-size: <16></16>px; ;font-weight: bold;');
-
-function Tab(url, id) {
-    this.url = url;
-    this.id = id;
-
-    this.updateParams = function(newParams) {
-        this.url = newParams.url;
-        this.id = newParams.id;
-    }
-}
+console.log('%c Content Script Mounted', 'color: red; font-size: 16px; font-weight: bold;');
 
 function getSelectedText() {
     let text; 
@@ -19,34 +9,29 @@ function getSelectedText() {
         text = window.getSelection().toString();
         console.log(window.getSelection());
     }
-
     return text;
 }
+
+let article = {
+    text: undefined,
+    url: undefined
+};
+
 
 // Send request to get the current url
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
-       
-        tab.updateParams({
-            url: message.url,
-            id: message.id
-        });
-
-        createPin(article);
-
+        article.url = message.url;
+        
+        if (article.text) {
+            createPin(article);
+        }
     }
 );
 
-// Create an empty article and an instance of a Tab
-let tab = new Tab(null, 0);
-
-let article = {
-    text: undefined
-}
-
 // Create pinned box for data
 function createPin(article) {
-   	console.time('pinBlock');
+   	
     try {
         // Clean out all pre-existing iframe
         [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
@@ -59,7 +44,6 @@ function createPin(article) {
         (document.getElementsByTagName('body')[0]).appendChild(iframe);
          
         let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
-
         // Write onto the iframe
         iframeContext.open();
         iframeContext.write('<html><body></body></html>');
@@ -71,8 +55,9 @@ function createPin(article) {
         pinnedNote.setAttribute('class', 'pinnedNote');
 
         // Set the data for the note
-        pinnedNote.innerHTML = `<h1>${ article.text }</h1><br><h2>${ tab.url.toUpperCase() }</h2>`;
+        pinnedNote.innerHTML = `<h1>${ article.text }</h1><br><h2>${ article.url.toUpperCase() }</h2>`;
 
+        // Style the note 
         pinnedNote.style.fontSize = '8px';
         pinnedNote.style.color = '#fff';
         pinnedNote.style.fontFamily = 'Segoe ui, sans-serif, Impact';
@@ -82,8 +67,6 @@ function createPin(article) {
         console.log('Created pinned note!');
     } catch (err) {
         console.error(err);
-    } finally {
-      	console.timeEnd('pinBlock');
     }
 }
 

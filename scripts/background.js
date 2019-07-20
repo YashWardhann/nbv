@@ -1,4 +1,4 @@
-console.log('Background Script Mounted!');
+console.log('%c Background Script Mounted!', 'color: red; font-size: 16px; font-weight: bold;');
 
 // Gets the current active tab
 function getActiveTab() {
@@ -21,26 +21,30 @@ function getActiveTab() {
 function getHostName(url) {
     let index = [];
 
-    for (let i = 0; i < url.length; i++) {
+    let i = 0;    
+    while (i < url.length) {
         if (url[i] === '.') {
             index.push(i);
-        }
+        }        
+        i++;
     }
-
-    return url.slice(index[0] + 1, index[1]);
+    
+    if (index.length == 1) {
+        return url.slice(url.indexOf('/') + 2, index[0]);
+    } else if(index.length == 2) {
+        return url.slice(index[0] + 1, index[1]);
+    }  
 }
 
 // Connect to active tab and send a message
-chrome.browserAction.onClicked.addListener(function() {
+chrome.browserAction.onClicked.addListener(
+    function() {
         getActiveTab()
             .then((tab) => {
-                console.log(tab);
                 chrome.tabs.sendMessage(tab.id, {
                     url: getHostName(tab.url),
-                    id: tab.id
                 });
             })
-            
     }
 );
 
