@@ -108,7 +108,5 @@ window.addEventListener("mouseup", function() {
 		);
 	} catch (err) {
 		console.error('Error');
-	} finally {
-
-	}
+	} 
 });  
