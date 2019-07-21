@@ -24,10 +24,10 @@ function getHostName(url) {
         i++;
     }
     
-    if (index.length == 1) {
-        return url.slice(url.indexOf('/') + 2, index[0]);
-    } else if(index.length == 2) {
+    if (url.includes('www') || index.length == 2) {
         return url.slice(index[0] + 1, index[1]);
+    } else {
+        return url.slice(url.indexOf('/') + 2, index[0]);
     }  
 }
 
@@ -47,10 +47,16 @@ function createPin(article) {
 
         //  The pinned note must be created within an iframe context 
         //  to prevent it from inheriting styles 
+        
+        // Create a container to wrap the iframes
+        let container = document.createElement('div');
+        container.setAttribute('class', 'generatedContainer');
+        (document.getElementsByTagName('body')[0]).appendChild(container);
 
         let iframe = document.createElement('iframe');
         iframe.setAttribute('class', 'generatedIframe');
-        (document.getElementsByTagName('body')[0]).appendChild(iframe);
+        
+        container.appendChild(iframe);
          
         let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
         // Write onto the iframe

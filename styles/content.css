@@ -1,20 +1,24 @@
-
-.generatedIframe {
+.generatedContainer {
     position: fixed !important;
     top: 50%;
     left: 80%;
     transform: translate(-50%, -50%);
     width: auto;
+    height: auto;
+}
+.generatedIframe {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 999;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     padding: 30px;
     box-sizing: border-box;
-    max-width: 20%;
     color: #fff;
     font-size: 12px;
     border: none;
     transition: all 0.5s;
     border-radius: 3%;
     overflow: hidden;
-
 }
