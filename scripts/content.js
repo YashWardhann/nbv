@@ -3,6 +3,11 @@
 
 console.log('%c Content Script Mounted', 'color: red; font-size: 16px; font-weight: bold;');
 
+let article = {
+    text: null, 
+    url: null
+};
+
 function getArticleParams() {
    
     if(window.getSelection) {
@@ -30,13 +35,6 @@ function getHostName(url) {
         return url.slice(url.indexOf('/') + 2, index[0]);
     }  
 }
-
-let article = {
-    text: undefined,
-    url: undefined
-};
-
-
 
 // Create pinned box for data
 function createPin(article) {
@@ -93,6 +91,22 @@ function deletePins() {
      // Clean out all pre-existing iframe
      [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
 }
+
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        chrome.runtime.sendMessage({
+            contentScriptQuery: 'fetchData'
+        }, function(response) {
+           if(response) {
+               resolve(response);
+           } else {
+               reject('No response was retured.');
+           }
+        });        
+    });
+}
+
+
 window.addEventListener("mouseup", function() {      
     try {
         let { text, url } = getArticleParams();
@@ -102,6 +116,13 @@ window.addEventListener("mouseup", function() {
             article.url = url;
 
             createPin(article);
+
+            fetchData()
+                .then((data) => {
+                    console.log(data);
+                })
+
+            
         } else {
             deletePins();
         }
@@ -110,4 +131,3 @@ window.addEventListener("mouseup", function() {
 	} 
 });  
 
-// Make request to remote REST API to fetch results dynamically
