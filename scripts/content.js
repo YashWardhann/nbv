@@ -42,8 +42,8 @@ let article = {
 function createPin(article) {
    	
     try {
-        // Clean out all pre-existing iframe
-        [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
+        // Clean out all existing pins
+        deletePins();
 
         //  The pinned note must be created within an iframe context 
         //  to prevent it from inheriting styles 
@@ -59,7 +59,7 @@ function createPin(article) {
         iframeContext.close();
 
         iframeBody = iframeContext.body;
-        
+
         let pinnedNote = document.createElement('div');
         pinnedNote.setAttribute('class', 'pinnedNote');
 
@@ -71,22 +71,34 @@ function createPin(article) {
         pinnedNote.style.color = '#fff';
         pinnedNote.style.fontFamily = 'Segoe ui, sans-serif';
 
-        
         // Mount the generate note to the iframe
         iframeBody.appendChild(pinnedNote);
+        iframeBody.style.overflow = 'hidden';
+
+        // Increase height of iframe depending on content
+        iframe.height = iframeBody.scrollHeight + 50; 
         console.log('Created pinned note!');
     } catch (err) {
         console.error(err);
     }
 }
 
+function deletePins() {
+     // Clean out all pre-existing iframe
+     [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
+}
 window.addEventListener("mouseup", function() {      
     try {
         let { text, url } = getArticleParams();
-        article.text = text; 
-        article.url = url;
+        if (text.trim()) {
+            console.log('Entered this statement!');
+            article.text = text; 
+            article.url = url;
 
-        createPin(article);
+            createPin(article);
+        } else {
+            deletePins();
+        }
     } catch (err) {
 		console.error('Error');
 	} 
