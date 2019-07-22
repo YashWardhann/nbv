@@ -3,15 +3,15 @@
 
 console.log('%c Content Script Mounted', 'color: red; font-size: 16px; font-weight: bold;');
 
-/**
- * @param { String } text - Title of the article
- * @param { String } url - Origin URL of the article
- */
-
-
 class Article {
+
+    /**
+    * @param { String } text - Title of the article
+    * @param { String } url - Origin URL of the article
+    */
+
     constructor(text, url) {
-        this._text =text;
+        this._text = text;
         this._url = url;
     }
 
@@ -74,9 +74,7 @@ function getHostName(url) {
 
 // Get a random gradient background for the pin
 function getRandomGradient() {
-
     // All gradients are taken from https://webgradients.com
-
     let gradients = [
         'linear-gradient(120deg, #a1c4fd 0%, #a7d7ec 100%)',
         'linear-gradient(120deg, #807af2 0%, #a8a4fb 100%)',
@@ -84,9 +82,7 @@ function getRandomGradient() {
         'linear-gradient(120deg, #e74c3c 0%, #ff4757 100%)',
         'linear-gradient(120deg, #2f3542 0%, #535863 100%)'
     ];
-
     return gradients[Math.floor(Math.random() * gradients.length)];
-
 }
 
 // Create pinned box for data
@@ -96,7 +92,6 @@ function createPin(article) {
         //  to prevent it from inheriting styles 
         
         // Create a container to wrap the iframes
-
         if (document.getElementsByClassName('generatedIframe').length >= 2) {
             Article.clean();
         } else {
@@ -104,7 +99,7 @@ function createPin(article) {
             iframe.setAttribute('class', 'generatedIframe');
             iframe.style.background =  getRandomGradient();
             iframe.height =  '0px';
-                    
+              
             (document.getElementsByClassName('iframeContainer')[0]).appendChild(iframe);
             
             let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
@@ -112,9 +107,7 @@ function createPin(article) {
             iframeContext.open();
             iframeContext.write('<html><body></body></html>');
             iframeContext.close();
-
             iframeBody = iframeContext.body;
-
             let pinnedNote = document.createElement('div');
             pinnedNote.setAttribute('class', 'pinnedNote');
             
@@ -159,11 +152,11 @@ function createPin(article) {
 }
 
 // Fetches a new article from a remote REST API
-function fetchData() {
+function fetchData(sourceArticle) {
     return new Promise((resolve, reject) => {
         chrome.runtime.sendMessage({
             contentScriptQuery: 'fetchData', 
-            sourceArticle: article
+            sourceArticle: sourceArticle
         }, function(response) {
            if(response) {
                resolve(response);
@@ -174,28 +167,31 @@ function fetchData() {
     });
 }
 
-window.addEventListener("mouseup", function() {      
+window.addEventListener("mouseup", function() {  
+    console.log('Fired mouseup event');    
     try {
         // Initialize a new source article and 
         // set it's parameters
-        const sourceArticle = new Article(null, 0);
+        let sourceArticle = new Article(null, null);
         sourceArticle.setParams(getArticleParams());
 
         // Clean out all existing pins
         Article.clean();
-        
+
         // getText method returns a trimmed string
-        if (article.getText()) {       
+        if (sourceArticle.getText()) {       
             // Initialize the new article fetched dynamically
-            const remoteArticle = new Article(null, 0);
+            let remoteArticle = new Article(null, null);
             // Fetch data from the RESTful API and generate a new note
-            fetchData()
+            fetchData(sourceArticle)
                 .then((data) => {
                     remoteArticle.setParams({
                         text: data.title, 
                         url: 'OPINDIA' 
                     });
 
+                    // Generate a pin for the newly generated
+                    // remote article
                     createPin(remoteArticle);
                 });            
         } 
