@@ -4,7 +4,8 @@ console.log('%c Background Script Mounted!', 'color: red; font-size: 16px; font-
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         console.log(`Recieved message from ${ sender }`);
-        if (request.contentScriptQuery === 'fetchData') {
+        if (request.contentScriptQuery === 'fetchData' && request.sourceArticle) {
+            console.log(request.sourceArticle);
             fetch('https://jsonplaceholder.typicode.com/posts/1')
                 .then((response) => {
                     if (response.status !== 200) {
@@ -12,7 +13,9 @@ chrome.runtime.onMessage.addListener(
                     } 
                     response.json()
                         .then((data) => {
-                            sendResponse(data);
+                            sendResponse({
+                                title: request.sourceArticle.text
+                            });
                             console.log('Sent response');
                         })
                 })
