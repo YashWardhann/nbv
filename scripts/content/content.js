@@ -3,11 +3,37 @@
 
 console.log('%c Content Script Mounted', 'color: red; font-size: 16px; font-weight: bold;');
 
-// Stores the source text selected by the user and the source url
-let article = {
-    text: null, 
-    url: null
+/**
+ * @param { String } text - Title of the article
+ * @param { String } url - Origin URL of the article
+ */
+
+
+class Article {
+    constructor(text, url) {
+        this._text =text;
+        this._url = url;
+    }
+
+    getText() {
+        return this._text.trim();
+    }
+
+    getUrl() {
+        return this._url;
+    }
+
+    setParams(params) {
+        this._text = params.text;
+        this._url = params.url;
+    }
+
+    static clean() {
+        // Clean out all pre-existing iframe
+        [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
+    }
 };
+
 
 // Initialize an empty container for the iframe
 window.onload = function() {
@@ -38,7 +64,7 @@ function getHostName(url) {
         }        
         i++;
     }
-    
+        
     if (url.includes('www') || index.length == 2) {
         return url.slice(index[0] + 1, index[1]);
     } else {
@@ -72,7 +98,7 @@ function createPin(article) {
         // Create a container to wrap the iframes
 
         if (document.getElementsByClassName('generatedIframe').length >= 2) {
-            deletePins();
+            Article.clean();
         } else {
             let iframe = document.createElement('iframe');
             iframe.setAttribute('class', 'generatedIframe');
@@ -99,7 +125,7 @@ function createPin(article) {
             pinnedNote.appendChild(textContainer);
 
             // Set the data for the note
-            textContainer.innerHTML = `<b>${ article.text }</b><h5>BY ${ article.url.toUpperCase() } </h5>`;
+            textContainer.innerHTML = `<b>${ article.getText() }</b><h5>BY ${ article.getUrl().toUpperCase() } </h5>`;
 
             // Style the note and container
             pinnedNote.style.fontSize = '18px';
@@ -132,11 +158,6 @@ function createPin(article) {
     }
 }
 
-function deletePins() {
-    // Clean out all pre-existing iframe
-    [...document.getElementsByClassName('generatedIframe')].map(el => el.remove());
-}
-
 // Fetches a new article from a remote REST API
 function fetchData() {
     return new Promise((resolve, reject) => {
@@ -155,25 +176,29 @@ function fetchData() {
 
 window.addEventListener("mouseup", function() {      
     try {
-        let { text, url } = getArticleParams();
-        if (text.trim()) {
-            article.text = text; 
-            article.url = url;
+        // Initialize a new source article and 
+        // set it's parameters
+        const sourceArticle = new Article(null, 0);
+        sourceArticle.setParams(getArticleParams());
 
-            // Clean out all existing pins
-            deletePins();
-
+        // Clean out all existing pins
+        Article.clean();
+        
+        // getText method returns a trimmed string
+        if (article.getText()) {       
+            // Initialize the new article fetched dynamically
+            const remoteArticle = new Article(null, 0);
             // Fetch data from the RESTful API and generate a new note
             fetchData()
                 .then((data) => {
-                    createPin({
+                    remoteArticle.setParams({
                         text: data.title, 
                         url: 'OPINDIA' 
                     });
+
+                    createPin(remoteArticle);
                 });            
-        } else {
-            deletePins();
-        }
+        } 
     } catch (err) {
 		console.error('Error');
 	} 
