@@ -131,3 +131,5 @@ Timestamp: [2019-07-23T18:16:06.994Z] Level: [info] Listening to port 8080
 [info] Heyau {
     "foo": "bar"
 }
+[info] Winston loaded and ready!
+[info] Listening to port 8080
