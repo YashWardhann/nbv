@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import ejs from 'ejs';
 
 import winston from './config/winston';
@@ -11,9 +10,6 @@ const app = express();
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.set('jsonParser', bodyParser.json());
-app.set('urlencodedParser', bodyParser.urlencoded({ extended: false }));
-
 
 // Primary routes 
 app.use((req, res, next) => {
