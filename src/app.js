@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import ejs from 'ejs';
 
 import winston from './config/winston';
-import apiRoutes from './routes/api/apiRoutes';
+import apiRoutes from './routes/api/api.routes.js';
 
 
 const app = express();
@@ -18,7 +18,6 @@ app.set('urlencodedParser', bodyParser.urlencoded({ extended: false }));
 // Primary routes 
 app.use((req, res, next) => {
     winston.info(`Incoming ${req.method} request`);
-    winston.info({foo: 'bar'});
     next();
 });
 
@@ -33,5 +32,3 @@ const altPort = (process.argv[2]) ? process.argv[2] : 8080;
 const server = app.listen(process.env.PORT || altPort, () => {
     winston.info(`Listening to port ${server.address().port}`);
 });
-
-winston.info('Winston loaded and ready!');
