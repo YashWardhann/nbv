@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
-import apiRoutes from './routes/api/root.js';
+import apiRoutes from './routes/api/apiRoutes';
 
 const app = express();
 
@@ -10,6 +10,14 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.set('jsonParser', bodyParser.json());
 app.set('urlencodedParser', bodyParser.urlencoded({ extended: false }));
+
+
+// Primary routes 
+app.use((req, res, next) => {
+    console.log(`Incoming ${req.method} request`);
+    next();
+});
+
 
 // Mount the v1 api routes
 app.use('/v1', apiRoutes);
