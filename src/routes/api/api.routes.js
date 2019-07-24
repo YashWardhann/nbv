@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/article', urlencodedParser ,(req,res) => {
-    winston.info(req.body);
+    console.log(req.body);
     return res.status(200).json({ title: title });
 });
 
