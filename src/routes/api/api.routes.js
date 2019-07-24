@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.post('/article', urlencodedParser ,(req,res) => {
     console.log(req.body);
-    return res.status(200).json({ title: title });
+    return res.status(200).json({ title: "Hey there!" });
 });
 
 export default router;
