@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/article', urlencodedParser ,(req,res) => {
-    console.log(req.body);
+    console.log(req.body.text);
     return res.status(200).json({ title: "Hey there!" });
 });
 
