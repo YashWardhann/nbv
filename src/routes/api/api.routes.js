@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import winston from './../config/winston';
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -10,7 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/article', urlencodedParser ,(req,res) => {
-    let { title, url } = JSON.parse(req.body);
+    winston.info(req.body);
     return res.status(200).json({ title: title });
 });
 
