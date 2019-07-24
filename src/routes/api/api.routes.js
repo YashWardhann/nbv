@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import winston from './../config/winston';
+import winston from './../../config/winston';
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
