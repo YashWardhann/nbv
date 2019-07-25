@@ -101,7 +101,9 @@ function createPin(article) {
             iframe.height =  '0px';
               
             (document.getElementsByClassName('iframeContainer')[0]).appendChild(iframe);
-            
+
+            console.log(`${ article.getText() } v/s ${ getArticleParams().text }`);
+             
             let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
             // Write onto the iframe
             iframeContext.open();
@@ -187,7 +189,7 @@ window.addEventListener("mouseup", function() {
                 .then((data) => {
                     remoteArticle.setParams({
                         text: data.title, 
-                        url: 'OPINDIA' 
+                        url: data.url 
                     });
 
                     // Generate a pin for the newly generated
