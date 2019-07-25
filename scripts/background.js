@@ -1,6 +1,6 @@
 console.log('%c Background Script Mounted!', 'color: red; font-size: 16px; font-weight: bold;');
 
-let remoteUrl = 'http://8d3d4d86.ngrok.io/v1/article';
+let remoteUrl = 'https://obscure-headland-96128.herokuapp.com';
 
 function serialize(params) {
     let serializedString = Object.keys(params)
