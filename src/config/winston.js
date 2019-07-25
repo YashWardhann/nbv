@@ -13,11 +13,15 @@ if(!fs.existsSync(logDir)) {
 }
 
 
-// Create custom format for logging to files
+
 const { combine, timestamp, label, printf } = format;
-const loggerFormat = printf(({level, message, timestamp}) => {
-    return `Timestamp: [${timestamp}] Level: [${level}] ${message}`;
+
+// Create custom format for logging to files
+const loggerFormatFile = printf(({level, message, timestamp}) => {
+    return `${timestamp} [${level}]: ${message}`;
 });
+
+const loggerFormatConsole = printf(info => `[${info.level}] ${info.message}`);
 
 // Convert objects to strings for logging 
 const prettyJson = format.printf(info => {
@@ -32,15 +36,18 @@ const logger = createLogger({
     level: 'info',
     format: combine(
         timestamp(),
-        loggerFormat,
-        prettyJson
+        loggerFormatFile,
     ),
 
     transports: [
         // - Print all logs with level 'info' and 'error' to the console
         new transports.Console({
             colorize: 'all',
-            format: format.printf(info => `[${info.level}] ${info.message}`)
+            format: combine(
+                format.colorize(),
+                loggerFormatConsole, 
+                prettyJson
+            )
         }),
 
         // - Write all logs with level 'info' and 'error' to 'combined.log'
