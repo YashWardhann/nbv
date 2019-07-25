@@ -4,7 +4,6 @@ import ejs from 'ejs';
 import winston from './config/winston';
 import apiRoutes from './routes/api/api.routes.js';
 
-
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
