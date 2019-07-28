@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/bin/dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scrape": "node src/utils/WebScraper/Scrape.js"
   },
   "author": "Yashwardhann <stoner.spruce@gmail.com>",
   "license": "ISC",
@@ -16,7 +17,13 @@
     "body-parser": "^1.19.0",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "mongoose": "^5.6.7",
     "path": "^0.12.7",
+    "puppeteer": "^1.19.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
   }
 }
