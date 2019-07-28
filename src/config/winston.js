@@ -47,7 +47,8 @@ const logger = createLogger({
                 format.colorize(),
                 loggerFormatConsole, 
                 prettyJson
-            )
+            ), 
+            silent: process.env.NODE_ENV === 'test' // Disable logging to console while testing
         }),
 
         // - Write all logs with level 'info' and 'error' to 'combined.log'
