@@ -24,7 +24,7 @@ module.exports = async (page, bias) => {
         let elsText = [];
 
         for (let i = 0; i < els.length; i++) {
-            elsText[i] = els[i].innerText;
+            elsText[i] = els[i].innerText.replace('\n', '');            
         }
 
         return elsText;
