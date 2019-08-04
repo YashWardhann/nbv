@@ -1,6 +1,6 @@
 console.log('%c Background Script Mounted!', 'color: red; font-size: 16px; font-weight: bold;');
 
-let remoteUrl = 'https://obscure-headland-96128.herokuapp.com/v1/article';
+let remoteUrl = 'http://a8243690.ngrok.io/v1/article';
 
 function serialize(params) {
     let serializedString = Object.keys(params)
@@ -36,7 +36,8 @@ chrome.runtime.onMessage.addListener(
                             console.log(data);
                             sendResponse({
                                 title: data.title,
-                                url: data.url
+                                url: data.url, 
+                                bias: data.bias
                             });
                             console.log('Sent response');
                         })

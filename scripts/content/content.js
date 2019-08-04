@@ -10,22 +10,28 @@ class Article {
     * @param { String } url - Origin URL of the article
     */
 
-    constructor(text, url) {
+    constructor(text, url, bias) {
         this._text = text;
         this._url = url;
+        this._bias = bias; 
     }
 
-    getText() {
+    get text() {
         return this._text.trim();
     }
 
-    getUrl() {
+    get url() {
         return this._url;
+    }
+
+    get bias() {
+        return this._bias;
     }
 
     setParams(params) {
         this._text = params.text;
         this._url = params.url;
+        this._bias = params.bias;
     }
 
     static clean() {
@@ -101,8 +107,6 @@ function createPin(article) {
             iframe.height =  '0px';
               
             (document.getElementsByClassName('iframeContainer')[0]).appendChild(iframe);
-
-            console.log(`${ article.getText() } v/s ${ getArticleParams().text }`);
              
             let iframeContext = iframe.contentDocument || iframe.contentWindow.document;
             // Write onto the iframe
@@ -120,7 +124,7 @@ function createPin(article) {
             pinnedNote.appendChild(textContainer);
 
             // Set the data for the note
-            textContainer.innerHTML = `<b>${ article.getText() }</b><h5>BY ${ article.getUrl().toUpperCase() } </h5>`;
+            textContainer.innerHTML = `<b>${ article.text }</b><h5>BY ${ article.url.toUpperCase() } (${article.bias.toUpperCase()}) </h5>`;
 
             // Style the note and container
             pinnedNote.style.fontSize = '18px';
@@ -146,8 +150,6 @@ function createPin(article) {
             iframe.width = textContainer.clientWidth + 50; 
             console.log('Created pinned note!');
         }
-        
-        
     } catch (err) {
         console.error(err);
     }
@@ -174,14 +176,14 @@ window.addEventListener("mouseup", function() {
     try {
         // Initialize a new source article and 
         // set it's parameters
-        let sourceArticle = new Article(null, null);
+        let sourceArticle = new Article(undefined, null, undefined);
         sourceArticle.setParams(getArticleParams());
 
         // Clean out all existing pins
         Article.clean();
 
         // getText method returns a trimmed string
-        if (sourceArticle.getText()) {       
+        if (sourceArticle.text) {       
             // Initialize the new article fetched dynamically
             let remoteArticle = new Article(null, null);
             // Fetch data from the RESTful API and generate a new note
@@ -189,7 +191,8 @@ window.addEventListener("mouseup", function() {
                 .then((data) => {
                     remoteArticle.setParams({
                         text: data.title, 
-                        url: data.url 
+                        url: data.url, 
+                        bias: data.bias
                     });
 
                     // Generate a pin for the newly generated
