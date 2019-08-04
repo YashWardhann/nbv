@@ -29,7 +29,8 @@ router.post('/article', urlencodedParser ,(req,res) => {
     .then((doc) => {
         res.status(200).json({ 
             title: req.body.text,
-            url: req.body.url
+            url: doc.name, 
+            bias: doc.bias
         })
     })
     .catch((err) => logger.error(err));

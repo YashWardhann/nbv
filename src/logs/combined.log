@@ -350,3 +350,24 @@
 2019-07-30T18:16:43.931Z [info]: Connected to Mongoose DB
 2019-07-30T18:16:49.629Z [info]: Listening to port 8080
 2019-07-30T18:16:50.537Z [info]: Connected to Mongoose DB
+2019-08-04T11:58:32.231Z [info]: Listening to port 8080
+2019-08-04T11:58:33.403Z [info]: Connected to Mongoose DB
+2019-08-04T11:58:34.205Z [info]: Incoming GET request
+2019-08-04T11:58:34.390Z [info]: Incoming GET request
+2019-08-04T11:58:35.959Z [info]: Incoming GET request
+2019-08-04T12:04:25.842Z [info]: Incoming GET request
+2019-08-04T12:04:29.570Z [info]: Incoming POST request
+2019-08-04T12:05:07.204Z [info]: Listening to port 8080
+2019-08-04T12:05:08.577Z [info]: Connected to Mongoose DB
+2019-08-04T12:05:25.072Z [info]: Incoming GET request
+2019-08-04T12:05:27.430Z [info]: Incoming POST request
+2019-08-04T12:06:16.638Z [info]: Listening to port 8080
+2019-08-04T12:06:16.783Z [info]: Incoming GET request
+2019-08-04T12:06:17.551Z [info]: Connected to Mongoose DB
+2019-08-04T12:06:19.835Z [info]: Incoming POST request
+2019-08-04T12:06:39.386Z [info]: Listening to port 8080
+2019-08-04T12:06:40.635Z [info]: Connected to Mongoose DB
+2019-08-04T12:06:41.723Z [info]: Incoming GET request
+2019-08-04T12:06:46.342Z [info]: Incoming POST request
+2019-08-04T12:07:06.302Z [info]: Incoming POST request
+2019-08-04T12:07:39.393Z [info]: Incoming POST request
