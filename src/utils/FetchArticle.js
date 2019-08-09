@@ -1,56 +1,47 @@
+// Fetches an article from news-json api 
+// which has a different political leaning 
+// than the one given
 
-import MediaListing from './../models/media-model';
-import natural from 'natural';
+import MediaListing from '../models/media-model';
+import request from 'request';
 
-// Fetches an article from the media outlet database for
-// a media outlet whose name is most similar to that of 
-// the source article. This is done as URLs are in a 
-// different format as compared to the records in the 
-// database. 
-//
-// For eg: thehindu is the URL whereas The Hindu is the 
-// name
-
-function FetchArticle(sourceArticle) {
+const fetchArticle =  async sourceBias => {
     return new Promise((resolve, reject) => {
-        
-        // Get list of all media outlets by creating a new regular expression 
-        // to get all media outlets starting from the same letter as that
-        // of the source articles url
+        const scores = new Map([
+            ['left', -2],
+            ['leftcenter', -1],
+            ['center', 0],
+            ['rightcenter', 1],
+            ['right', 2]        
+        ]);
+    
+        const sourceScore = scores.get(sourceBias);
+    
+        const newArticle = {
+            url: undefined, 
+            bias: null
+        };
+    
+        // Get the required bias for the new article
+        for (let [key, score] of scores) {
+            if (score == sourceScore * -1) {
+                newArticle.bias = key;
+            } 
+        }
+    
+        // Get a random publisher based on the required bias
         MediaListing.find({
-            name: {
-                $regex: new RegExp('^' + sourceArticle.url[0]), 
-                $options: "i"
-            }
-        }, 
-            function(err, docs) {
-            if(err) {
-                reject(err);
-            } else {
-                
-                // Initialize an empty object to store 
-                // the matched record
-                let matched = {
-                    name: undefined, 
-                    bias: undefined, 
-                    distance: 0
-                };
-
-                // Store the media outlets information whose name is most similar to that 
-                // of the publisher of the source article
-                docs.forEach(function(doc) {
-                    let distance = natural.JaroWinklerDistance(doc.name, sourceArticle.url, undefined, true);   
-                    if (distance >= matched.distance) {
-                        matched.name = doc.name; 
-                        matched.bias = doc.bias;
-                        matched.distance = distance;
-                    }
-                });
-                
-                resolve(matched);                
-            }
+            bias: newArticle.bias
+        }, function(err, docs) {
+            if (err) reject(err);
+    
+            newArticle.url = docs[Math.floor(Math.random() * docs.length)].name;
+            resolve(newArticle);
         });
+    
     })
+
+
 }
 
-export default FetchArticle;
+export default fetchArticle;
