@@ -34,9 +34,24 @@ const fetchArticle =  async sourceBias => {
             bias: newArticle.bias
         }, function(err, docs) {
             if (err) reject(err);
-    
-            newArticle.url = docs[Math.floor(Math.random() * docs.length)].name;
-            resolve(newArticle);
+            let dbSources = [];
+            for (let doc of docs) {
+                dbSources.push(doc.name);
+            }
+            request('https://newsapi.org/v2/sources?language=en&apiKey=17279e5e52c04dc1a189434c07aab8df', function(err, response, body) {
+                if(response.statusCode === 200 && !err) {
+                    body = JSON.parse(body);
+                    let apiSources = [];
+                    for(let source of body.sources) {
+                        apiSources.push(source.name);
+                    }
+
+                    dbSources = dbSources.filter(dbSource => apiSources.indexOf(dbSource) !== -1);
+
+                    console.log(dbSources);
+                    
+                }
+            });
         });
     
     })
