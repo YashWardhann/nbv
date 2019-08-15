@@ -6,7 +6,7 @@
   "scripts": {
     "start": "SET NODE_ENV = dev && node src/bin/dev",
     "test": "mocha",
-    "scrape": "node src/utils/WebScraper/Scrape.js"
+    "scrape": "node src/tasks/WebScraper/Scrape.js"
   },
   "author": "Yashwardhann <stoner.spruce@gmail.com>",
   "license": "ISC",
@@ -23,7 +23,8 @@
     "path": "^0.12.7",
     "puppeteer": "^1.19.0",
     "request": "^2.88.0",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",

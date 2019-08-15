@@ -1,3 +1,6 @@
+// LAST SCRAPPED: 14/8/2019
+// NEXT SCRAPE: 14/12/2019
+
 const mongoose = require('mongoose');
 const puppeteer = require('puppeteer');
 const MediaListing = require('./MediaListing');
@@ -21,10 +24,12 @@ mongoose.connect('mongodb://admin:admin12@ds243897.mlab.com:43897/news-bias', {
 async function Scrape() {
     try {
         const browser = await puppeteer.launch({
-            headless: true
+            headless: (process.argv[3]) ? false : true
         });
 
         const page = await browser.newPage();
+        
+        page.on('console', consoleObj => console.log(consoleObj.text()))
 
         const biases = ['Left', 'leftcenter', 'center', 'right-center', 'right', 'fake-news'];
 

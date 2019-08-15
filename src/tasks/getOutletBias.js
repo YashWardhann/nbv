@@ -1,5 +1,5 @@
 import MediaListing from './../models/media-model';
-import natural from 'natural';
+import { JaroWinklerDistance } from 'natural';
 
 // Fetches the bias from the media outlet database for
 // a media outlet whose name is most similar to that of 
@@ -11,7 +11,8 @@ import natural from 'natural';
 // name
 
 const getOutletBias = async function(sourceArticle) {
-    return new Promise((resolve, reject) => {       
+    return new Promise((resolve, reject) => {
+       
         // Get list of all media outlets by creating a new regular expression 
         // to get all media outlets starting from the same letter as that
         // of the source articles url
@@ -36,14 +37,14 @@ const getOutletBias = async function(sourceArticle) {
                 // Store the media outlets information whose name is most similar to that 
                 // of the publisher of the source article
                 docs.forEach(function(doc) {
-                    let distance = natural.JaroWinklerDistance(doc.name, sourceArticle.url, undefined, true);   
+                    let distance = JaroWinklerDistance(doc.name, sourceArticle.url, undefined, true);   
                     if (distance >= matched.distance) {
                         matched.name = doc.name; 
                         matched.bias = doc.bias;
                         matched.distance = distance;
                     }
                 });
-                
+
                 resolve(matched.bias);                
             }
         });

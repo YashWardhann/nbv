@@ -18,18 +18,20 @@ module.exports = async (page, bias) => {
 
     const BiasList = await page.evaluate(() => {
         const containerDiv = (document.getElementsByClassName('entry clearfix'))[0];
-        const parentDiv = (containerDiv.querySelectorAll('p'))[1];
-        const els = parentDiv.querySelectorAll('a');
+        const parentDiv = (containerDiv.querySelectorAll('table'))[0];
+        const els = parentDiv.querySelectorAll('tr');
         
         let elsText = [];
 
         for (let i = 0; i < els.length; i++) {
-            elsText[i] = els[i].innerText.replace('\n', '');            
+          if (els[i].querySelector('a')) {
+            elsText[i] = els[i].querySelector('a').innerText.replace('\n', '').replace('/ \([\s\S]*?\)/g', '');      
+          }      
         }
 
         return elsText;
     }); 
-
+    
     for (let media of BiasList) {
         let listing = new MediaOutlet({
             name: media, 

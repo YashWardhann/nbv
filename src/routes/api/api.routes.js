@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import getOutletBias from './../../utils/getOutletBias';
-import fetchArticle from './../../utils/fetchArticle';
+import getOutletBias from './../../tasks/getOutletBias';
+import fetchArticle from './../../tasks/fetchArticle';
 
 import logger from './../../config/winston';
 
@@ -15,22 +15,41 @@ router.get('/', (req, res) => {
 
 router.get('/article', async (req,res) => {
     const bias = await getOutletBias({
-        url: 'thehindu'
+        url: 'bbc'
     });
-    
-    const ok = await fetchArticle('left');
-    console.log(ok);
+        
+    fetchArticle(bias)
+        .then((newArticle) => {
+            res.status(200).json(newArticle);
+        })
+        .catch((err) => {
+            res.status(404).json({
+                'status': 404,
+                'error': err                
+            })
+        });
 
 });
 
 router.post('/article', urlencodedParser , async (req,res) => {
+
+    // Fetch the bias of the publisher of the 
+    // source article from remote db 
     const bias = await getOutletBias({
-        url: req.body.url
+        url: 'bbc'
     });
     
-    res.status(200).json({
-        bias: bias
-    });
+    // Fetch an article and sent back response 
+    // to the remote requester 
+    fetchArticle(bias)
+        .then((newArticle) => {
+            res.status(200).json(newArticle);
+        })
+        .catch((err) => {
+            res.status(404).json({
+                'error': err
+            })
+        });
 });
 
 export default router;
