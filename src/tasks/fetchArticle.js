@@ -44,7 +44,7 @@ const fetchArticle =  async sourceBias => {
                 dbSources.push(doc.name);
             }
 
-            let keywords = ['kashmir', 'bjp', 'modi'];
+            let keywords = ['israel', 'usa', 'congress reps'];
             let source = [dbSources[Math.floor(Math.random() * dbSources.length)]]
             console.log(source);
  
