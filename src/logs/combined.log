@@ -1276,3 +1276,8 @@
 2019-08-17T06:26:50.890Z [info]: Incoming GET request
 2019-08-17T06:26:55.628Z [info]: Incoming GET request
 2019-08-17T06:27:11.135Z [info]: Listening to port 8080
+2019-08-17T18:32:08.171Z [info]: Listening to port 8080
+2019-08-17T18:32:10.031Z [info]: Connected to Mongoose DB
+2019-08-17T18:32:10.279Z [info]: Incoming GET request
+2019-08-17T18:32:16.324Z [info]: Incoming GET request
+2019-08-17T18:32:19.781Z [info]: Incoming GET request

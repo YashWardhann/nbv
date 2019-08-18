@@ -1,5 +1,19 @@
 const nlp = require('compromise');
 
+// Returns an array whose each element is distinct
+function distinctArray (array) {
+    for (let i = array.length - 1; i >=0 ; i--) {
+        for (let j = 0; j < i; j++) {
+           if(array[j].includes(array[i])) {
+                array.splice(i,1);
+           }
+        }
+    }
+    
+    return array;
+}
+
+
 const tokenize = function(sentence) {
     // Returns an object of keywords containing
     // nouns, places, people, topics, titlecased words
@@ -18,18 +32,15 @@ const tokenize = function(sentence) {
     // Grab all nouns
     let nouns = doc.nouns().out('array');
 
-    console.log(nouns);
-
     // Grab all default named entities
-    let topics = doc.topics();
-
+    let topics = doc.topics().out('array');
     // Grab all titlecased words 
-    let titlecased = doc.clauses().match('#TitleCase+');
+    let titlecased = doc.clauses().match('#TitleCase+').out('array');
+    
+    // Add all the arrays to the token array and flatten it
+    tokens = [...tokens, nouns, topics, titlecased].flat();
 
-    // Add the titlecased words to the result
-    topics = topics.concat(titlecased).unique().sort('chron');
-
-    return topics.out('topk');
+    return distinctArray(tokens);
 }
 
-console.log(tokenize('Donald Trump bullied a man as overweight, then didnt apologize'));
+console.log(tokenize('Afghanistan: Bomb kills 63 at wedding in Kabul').join(' '));
