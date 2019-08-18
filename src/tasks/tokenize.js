@@ -1,4 +1,4 @@
-const nlp = require('compromise');
+import nlp from 'compromise';
 
 // Returns an array whose each element is distinct
 function distinctArray (array) {
@@ -8,13 +8,11 @@ function distinctArray (array) {
                 array.splice(i,1);
            }
         }
-    }
-    
+    }    
     return array;
 }
 
-
-const tokenize = function(sentence) {
+const tokenize = function(sentence, options) {   
     // Returns an object of keywords containing
     // nouns, places, people, topics, titlecased words
     // which can be used to replicate search results
@@ -40,7 +38,15 @@ const tokenize = function(sentence) {
     // Add all the arrays to the token array and flatten it
     tokens = [...tokens, nouns, topics, titlecased].flat();
 
-    return distinctArray(tokens);
+    // Return the tokens in different formats based on 
+    // what the return type mentioned is in function call
+    if (options.returnType === 'array') {
+        return tokens;
+    } else if (options.returnType === 'string') {
+        return tokens.join(' ');
+    } else if (options.returnType === 'url') {
+        return encodeURIComponent(tokens.join('+'));
+    }
 }
 
-console.log(tokenize('Afghanistan: Bomb kills 63 at wedding in Kabul').join(' '));
+export default tokenize;

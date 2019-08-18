@@ -5,10 +5,11 @@
 import MediaListing from '../models/media-model';
 import logger from '../config/winston';
 import request from 'request';
+import tokenize from './tokenize';
 import { JaroWinklerDistance } from 'natural';
 import { parseString } from 'xml2js';
 
-const fetchArticle =  async sourceBias => {
+const fetchArticle =  async (sourceArticle, sourceBias) => {
     return new Promise((resolve, reject) => {
         const scores = new Map([
             ['Left', -2],
@@ -44,7 +45,7 @@ const fetchArticle =  async sourceBias => {
                 dbSources.push(doc.name);
             }
 
-            let keywords = ['israel', 'usa', 'congress reps'];
+            let keywords = tokenize(sourceArticle.title, { returnType: 'array' });
             let source = [dbSources[Math.floor(Math.random() * dbSources.length)]]
             console.log(source);
  

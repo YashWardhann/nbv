@@ -1281,3 +1281,61 @@
 2019-08-17T18:32:10.279Z [info]: Incoming GET request
 2019-08-17T18:32:16.324Z [info]: Incoming GET request
 2019-08-17T18:32:19.781Z [info]: Incoming GET request
+2019-08-18T18:18:19.954Z [info]: Listening to port 8080
+2019-08-18T18:18:19.966Z [info]: Incoming GET request
+2019-08-18T18:18:21.506Z [info]: Connected to Mongoose DB
+2019-08-18T18:18:32.551Z [info]: Listening to port 8080
+2019-08-18T18:18:32.582Z [info]: Incoming GET request
+2019-08-18T18:18:33.467Z [info]: Connected to Mongoose DB
+2019-08-18T18:18:35.026Z [info]: Incoming GET request
+2019-08-18T18:19:51.637Z [info]: Listening to port 8080
+2019-08-18T18:31:47.698Z [info]: Listening to port 8080
+2019-08-18T18:31:48.973Z [info]: Connected to Mongoose DB
+2019-08-18T18:32:09.710Z [info]: Listening to port 8080
+2019-08-18T18:32:10.629Z [info]: Connected to Mongoose DB
+2019-08-18T18:33:06.828Z [info]: Listening to port 8080
+2019-08-18T18:33:07.710Z [info]: Connected to Mongoose DB
+2019-08-18T18:33:28.542Z [info]: Listening to port 8080
+2019-08-18T18:33:29.738Z [info]: Connected to Mongoose DB
+2019-08-18T18:33:33.459Z [info]: Incoming GET request
+2019-08-18T18:33:36.261Z [info]: Sent article data to /0
+2019-08-18T18:34:27.489Z [info]: Listening to port 8080
+2019-08-18T18:34:28.376Z [info]: Connected to Mongoose DB
+2019-08-18T18:34:29.978Z [info]: Incoming GET request
+2019-08-18T18:34:32.233Z [info]: Sent article data to /0 (METHOD: GET)
+2019-08-18T18:35:04.676Z [info]: Listening to port 8080
+2019-08-18T18:35:05.004Z [info]: Incoming GET request
+2019-08-18T18:35:06.068Z [info]: Connected to Mongoose DB
+2019-08-18T18:35:07.530Z [info]: Sent article data to /0 (METHOD: GET)
+2019-08-18T18:35:45.074Z [info]: Listening to port 8080
+2019-08-18T18:35:46.019Z [info]: Connected to Mongoose DB
+2019-08-18T18:36:29.449Z [info]: Listening to port 8080
+2019-08-18T18:36:30.411Z [info]: Connected to Mongoose DB
+2019-08-18T18:36:51.595Z [info]: Listening to port 8080
+2019-08-18T18:36:52.984Z [info]: Connected to Mongoose DB
+2019-08-18T18:38:42.614Z [info]: Listening to port 8080
+2019-08-18T18:38:43.757Z [info]: Connected to Mongoose DB
+2019-08-18T18:38:46.968Z [info]: Listening to port 8080
+2019-08-18T18:38:47.892Z [info]: Connected to Mongoose DB
+2019-08-18T18:38:55.267Z [info]: Listening to port 8080
+2019-08-18T18:38:56.200Z [info]: Connected to Mongoose DB
+2019-08-18T18:39:02.284Z [info]: Listening to port 8080
+2019-08-18T18:39:03.184Z [info]: Connected to Mongoose DB
+2019-08-18T18:39:11.245Z [info]: Listening to port 8080
+2019-08-18T18:39:12.134Z [info]: Connected to Mongoose DB
+2019-08-18T18:41:49.415Z [info]: Listening to port 8080
+2019-08-18T18:41:50.823Z [info]: Connected to Mongoose DB
+2019-08-18T18:42:38.544Z [info]: Listening to port 8080
+2019-08-18T18:42:39.492Z [info]: Connected to Mongoose DB
+2019-08-18T18:43:49.328Z [info]: Listening to port 8080
+2019-08-18T18:43:50.725Z [info]: Connected to Mongoose DB
+2019-08-18T18:44:05.001Z [info]: Incoming GET request
+2019-08-18T18:44:06.943Z [info]: Sent article data to /0 (METHOD: GET)
+2019-08-18T18:44:16.588Z [info]: Incoming GET request
+2019-08-18T18:44:18.066Z [info]: Sent article data to /0 (METHOD: GET)
+2019-08-18T18:44:20.683Z [info]: Incoming GET request
+2019-08-18T18:44:22.074Z [info]: Sent article data to /0 (METHOD: GET)
+2019-08-18T18:44:26.722Z [info]: Incoming GET request
+2019-08-18T18:44:29.112Z [info]: Sent article data to /0 (METHOD: GET)
+2019-08-18T18:44:32.635Z [info]: Incoming GET request
+2019-08-18T18:44:34.169Z [info]: Sent article data to /0 (METHOD: GET)
