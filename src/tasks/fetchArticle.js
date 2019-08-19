@@ -20,7 +20,8 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
         ]);
     
         const sourceScore = scores.get(sourceBias);
-            
+        
+        // Stoes the new article fetched from Google News 
         const newArticle = {
             title: undefined,
             source: undefined, 
@@ -44,40 +45,43 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
             for (let doc of docs) {
                 dbSources.push(doc.name);
             }
-
-            let keywords = tokenize(sourceArticle.title, { returnType: 'url' });
-
-            let source = [dbSources[Math.floor(Math.random() * dbSources.length)]]
-            console.log(`https://news.google.com/rss/search?q=${keywords}+${encodeURIComponent(source)}`);
             
-            request(`https://news.google.com/rss/search?q=${[...keywords, ...source].join('+')}`, function(err, response, body) {
-                if(response.statusCode === 200 && !err) {               
-                    let matchedSources = [];
-
-                    parseString(body, function(err,result) {
-                        const items = result.rss.channel[0].item;
-
-
-                        if (items) {
-                            for (let i = 0; i < items.length; i++) {
-                                if (items[i].source[0]._.includes(source)) {
-                                    newArticle.title = items[i].title[0];
-                                    newArticle.source = source;
-                                    newArticle.link = items[i].link[0]
-                                    resolve(newArticle);
-                                    break;
-                                } else {
-                                    reject('No articles found!');
+            // Get tokens from the title in url format
+            let keywords = tokenize(sourceArticle.title, { returnType: 'url' });
+            let break_loop = 0; 
+    
+            for (let i = 0; i < dbSources.length && !break_loop; i++) {
+                let source = dbSources[i];
+             
+                request(`https://news.google.com/rss/search?q=${[...keywords, ...source].join('+')}`, function(err, response, body) {
+                    if(response.statusCode === 200 && !err) {  
+                        
+                        // Convert RSS feed to JSON format
+                        parseString(body, function(err,result) {
+                            const items = result.rss.channel[0].item;
+                            if (items) {
+                                for (let j = 0; j < items.length; j++) {
+                                    // Select an article whose source name matches the most to the fetched sources from the DB 
+                                    if (JaroWinklerDistance(items[j].source[0]._, source, undefined, true) >= 0.9) {
+                                        console.log(':)');
+                                        newArticle.title = items[j].title[0];
+                                        newArticle.source = source;
+                                        newArticle.link = items[j].link[0]
+                                        resolve(newArticle);
+                                        break; // Break the above loop
+                                        break_loop++; // Break the top most for loop
+                                    }
                                 }
+                            } else {
+                                reject('No sources found!');
                             }
-                        } else {
-                            reject('No sources found!');
-                        }
-                    });
-                } else {
-                    logger.error(err);
-                }
-            });
+                        });
+                    } else {
+                        logger.error(err);
+                    }
+                });
+            }
+
         });
     
     })

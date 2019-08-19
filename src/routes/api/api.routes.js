@@ -19,7 +19,7 @@ router.get('/0', async (req,res) => {
     });
         
     fetchArticle({
-        title: '2 US soldiers killed in apparent insider attack in Afghanistan identified by Pentagon'
+        title: 'Syrian civil war: Three killed in attack on Turkish convoy'
     }, bias)
         .then((newArticle) => {
             res.status(200).json(newArticle);
