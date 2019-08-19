@@ -1,7 +1,6 @@
 const MediaOutlet = require('./../../models/media-model');
 
 module.exports = async (page, bias) => {
-
     // Clear out all media outlet listings with the requested bias 
     MediaOutlet.deleteMany({
         bias: bias
@@ -35,7 +34,7 @@ module.exports = async (page, bias) => {
     for (let media of BiasList) {
         let listing = new MediaOutlet({
             name: media, 
-            bias: bias
+            bias: bias, 
         });
 
         listing.save();

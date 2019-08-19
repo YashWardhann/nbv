@@ -6,7 +6,7 @@
   "scripts": {
     "start": "SET NODE_ENV = dev && node src/bin/dev",
     "test": "mocha",
-    "scrape": "node src/tasks/WebScraper/Scrape.js"
+    "update": "node src/utils/PopulateDB"
   },
   "author": "Yashwardhann <stoner.spruce@gmail.com>",
   "license": "ISC",

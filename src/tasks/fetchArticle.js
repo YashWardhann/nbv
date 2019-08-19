@@ -5,7 +5,7 @@
 import MediaListing from '../models/media-model';
 import logger from '../config/winston';
 import request from 'request';
-import tokenize from './tokenize';
+import tokenize from './../utils/tokenize';
 import { JaroWinklerDistance } from 'natural';
 import { parseString } from 'xml2js';
 
@@ -13,7 +13,7 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
     return new Promise((resolve, reject) => {
         const scores = new Map([
             ['Left', -2],
-            ['leftcenter', -1],
+            ['left-center', -1],
             ['center', 0],
             ['right-center', 1],
             ['right', 2]        
@@ -45,22 +45,31 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
                 dbSources.push(doc.name);
             }
 
-            let keywords = tokenize(sourceArticle.title, { returnType: 'array' });
+            let keywords = tokenize(sourceArticle.title, { returnType: 'url' });
+
             let source = [dbSources[Math.floor(Math.random() * dbSources.length)]]
-            console.log(source);
- 
+            console.log(`https://news.google.com/rss/search?q=${keywords}+${encodeURIComponent(source)}`);
+            
             request(`https://news.google.com/rss/search?q=${[...keywords, ...source].join('+')}`, function(err, response, body) {
                 if(response.statusCode === 200 && !err) {               
                     let matchedSources = [];
 
                     parseString(body, function(err,result) {
                         const items = result.rss.channel[0].item;
-                      
+
+
                         if (items) {
-                            newArticle.title = items[0].title[0];
-                            newArticle.source = source;
-                            newArticle.link = items[0].link[0]
-                            resolve(newArticle);
+                            for (let i = 0; i < items.length; i++) {
+                                if (items[i].source[0]._.includes(source)) {
+                                    newArticle.title = items[i].title[0];
+                                    newArticle.source = source;
+                                    newArticle.link = items[i].link[0]
+                                    resolve(newArticle);
+                                    break;
+                                } else {
+                                    reject('No articles found!');
+                                }
+                            }
                         } else {
                             reject('No sources found!');
                         }

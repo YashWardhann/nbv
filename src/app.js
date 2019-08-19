@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 
 
 // Mount the v1 api routes
-app.use('/api/u', apiRoutes);
+app.use('/api/', apiRoutes);
 
 
 // Allows to set alternative port during launch
