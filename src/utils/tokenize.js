@@ -1,4 +1,5 @@
 import nlp from 'compromise';
+import shuffleArray from './shuffle';
 
 // Returns an array whose each element is distinct
 function distinctArray (array) {

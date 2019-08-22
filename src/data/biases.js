@@ -111,7 +111,7 @@ module.exports =
     "x": -15
   },
   {
-    "name": "Daily Wire",
+    "name": "The Daily Wire",
     "y": 16,
     "x": 28
   },

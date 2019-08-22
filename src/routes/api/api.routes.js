@@ -19,8 +19,8 @@ router.get('/0', async (req,res) => {
     });
         
     fetchArticle({
-        title: 'Syrian civil war: Three killed in attack on Turkish convoy'
-    }, bias)
+        title: "Kabul wedding blast: Groom has 'lost hope' after deadly attack"
+    }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);
             logger.info(`Sent article data to ${ req.url } (METHOD: ${ req.method })`);
