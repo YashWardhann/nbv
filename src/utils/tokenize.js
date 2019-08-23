@@ -46,7 +46,7 @@ const tokenize = function(sentence, options) {
     } else if (options.returnType === 'string') {
         return tokens.join(' ');
     } else if (options.returnType === 'url') {
-        return encodeURIComponent(tokens.join('+'));
+        return tokens.join('+');
     }
 }
 

@@ -19,7 +19,7 @@ router.get('/0', async (req,res) => {
     });
         
     fetchArticle({
-        title: "Kabul wedding blast: Groom has 'lost hope' after deadly attack"
+        title: "Fires in Amazon rainforest rage at record rate"
     }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);
