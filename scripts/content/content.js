@@ -124,7 +124,7 @@ function createPin(article) {
             pinnedNote.appendChild(textContainer);
 
             // Set the data for the note
-            textContainer.innerHTML = `<b>${ article.text }</b><h5>BY ${ article.url.toUpperCase() } (${article.bias.toUpperCase()}) </h5>`;
+            textContainer.innerHTML = `<b>${ article.text }</b><h5>BY ${ article.url.toUpperCase() } <br>(${article.bias.toUpperCase()}) </h5>`;
 
             // Style the note and container
             pinnedNote.style.fontSize = '18px';
@@ -162,10 +162,11 @@ function fetchData(sourceArticle) {
             contentScriptQuery: 'fetchData', 
             sourceArticle: sourceArticle
         }, function(response) {
-           if(response) {
+           if(response && response.status === 200) {
                resolve(response);
            } else {
-               reject('No response was retured.');
+               console.log(response.status);
+               reject(`Error: job failed (${response.status})`);
            }
         });        
     });
@@ -198,7 +199,8 @@ window.addEventListener("mouseup", function() {
                     // Generate a pin for the newly generated
                     // remote article
                     createPin(remoteArticle);
-                });            
+                })
+                .catch(err => console.error(err));            
         } 
     } catch (err) {
 		console.error('Error');

@@ -1,6 +1,6 @@
 console.log('%c Background Script Mounted!', 'color: red; font-size: 16px; font-weight: bold;');
 
-let remoteUrl = 'http://a8243690.ngrok.io/v1/article';
+let remoteUrl = 'http://3ef31996.ngrok.io/v1/article';
 
 function serialize(params) {
     let serializedString = Object.keys(params)
@@ -10,6 +10,18 @@ function serialize(params) {
     console.log(serializedString);
 
     return serializedString;
+}
+
+function cleanTitle(str) {
+    let indices = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if(str[i] === '-') {
+            indices.push(i);
+        }
+    }
+
+    return str.slice(0, indices[indices.length - 1]);
 }
 
 // Make request to remote REST API to fetch results dynamically
@@ -29,14 +41,18 @@ chrome.runtime.onMessage.addListener(
             })
             .then((response) => {
                     if (response.status !== 200) {
-                        console.log(`Error fetching data. Error code: ${ response.status }`);
+                        sendResponse({
+                            status: response.status,  
+                            error: `Error fetching data. Error code: ${ response.status }`
+                        });
                     } 
                     response.json()
                         .then((data) => {
                             console.log(data);
                             sendResponse({
-                                title: data.title,
-                                url: data.url, 
+                                status: response.status,
+                                title: cleanTitle(data.title),
+                                url: data.source[0].replace(/ *\([^)]*\) */g, ""), 
                                 bias: data.bias
                             });
                             console.log('Sent response');
