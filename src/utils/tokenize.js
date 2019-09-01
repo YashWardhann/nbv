@@ -36,8 +36,11 @@ const tokenize = function(sentence, options) {
     // Grab all titlecased words 
     let titlecased = doc.clauses().match('#TitleCase+').out('array');
     
-    // Add all the arrays to the token array and flatten it
-    tokens = [...tokens, nouns, topics, titlecased].flat();
+    // Add all the arrays to the token array 
+    tokens = [...tokens, nouns, topics, titlecased];
+
+    // Flatten the array 
+    tokens = Array.prototype.concat.apply([], tokens);
 
     // Return the tokens in different formats based on 
     // what the return type mentioned is in function call

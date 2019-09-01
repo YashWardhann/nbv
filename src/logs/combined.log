@@ -995,3 +995,91 @@
 2019-08-23T18:42:15.489Z [info]: Connected to Mongoose DB
 2019-08-23T18:47:11.355Z [info]: Listening to port 8080
 2019-08-23T18:47:12.826Z [info]: Connected to Mongoose DB
+2019-09-01T07:00:44.692Z [info]: Listening to port 8080
+2019-09-01T07:00:44.717Z [info]: Incoming GET request
+2019-09-01T07:00:52.119Z [info]: Connected to Mongoose DB
+2019-09-01T07:01:12.554Z [info]: Listening to port 8080
+2019-09-01T07:01:16.110Z [info]: Connected to Mongoose DB
+2019-09-01T10:09:28.077Z [info]: Listening to port 8080
+2019-09-01T10:09:30.265Z [info]: Connected to Mongoose DB
+2019-09-01T10:09:37.820Z [info]: Incoming GET request
+2019-09-01T10:11:41.231Z [info]: Incoming GET request
+2019-09-01T10:12:41.303Z [info]: Listening to port 8080
+2019-09-01T10:12:43.247Z [info]: Connected to Mongoose DB
+2019-09-01T10:12:55.699Z [info]: Incoming GET request
+2019-09-01T10:13:32.439Z [info]: Listening to port 8080
+2019-09-01T10:13:33.650Z [info]: Connected to Mongoose DB
+2019-09-01T10:13:38.674Z [info]: Incoming GET request
+2019-09-01T10:14:09.964Z [info]: Listening to port 8080
+2019-09-01T10:14:13.303Z [info]: Connected to Mongoose DB
+2019-09-01T10:14:20.800Z [info]: Incoming GET request
+2019-09-01T10:15:21.872Z [info]: Listening to port 8080
+2019-09-01T10:15:27.577Z [info]: Connected to Mongoose DB
+2019-09-01T10:15:29.185Z [info]: Incoming GET request
+2019-09-01T10:15:29.438Z [error]: ReferenceError: x is not defined (404)
+2019-09-01T10:15:29.489Z [info]: Incoming GET request
+2019-09-01T10:15:43.225Z [info]: Listening to port 8080
+2019-09-01T10:15:46.381Z [info]: Connected to Mongoose DB
+2019-09-01T10:16:09.458Z [info]: Listening to port 8080
+2019-09-01T10:16:14.153Z [info]: Incoming GET request
+2019-09-01T10:16:14.751Z [info]: Connected to Mongoose DB
+2019-09-01T10:16:15.182Z [error]: ReferenceError: x is not defined (404)
+2019-09-01T10:17:02.937Z [info]: Listening to port 8080
+2019-09-01T10:17:06.656Z [info]: Connected to Mongoose DB
+2019-09-01T10:17:07.430Z [info]: Incoming GET request
+2019-09-01T10:17:08.318Z [error]: ReferenceError: x is not defined (404)
+2019-09-01T10:17:17.779Z [info]: Listening to port 8080
+2019-09-01T10:17:20.498Z [info]: Connected to Mongoose DB
+2019-09-01T10:17:37.657Z [info]: Listening to port 8080
+2019-09-01T10:17:40.034Z [info]: Connected to Mongoose DB
+2019-09-01T10:17:41.612Z [info]: Incoming GET request
+2019-09-01T10:17:42.215Z [error]: ReferenceError: x is not defined (404)
+2019-09-01T10:17:51.361Z [info]: Listening to port 8080
+2019-09-01T10:17:56.621Z [info]: Connected to Mongoose DB
+2019-09-01T10:19:07.810Z [info]: Listening to port 8080
+2019-09-01T10:19:07.829Z [info]: Incoming GET request
+2019-09-01T10:19:12.562Z [info]: Connected to Mongoose DB
+2019-09-01T10:19:19.926Z [info]: Listening to port 8080
+2019-09-01T10:19:19.991Z [info]: Incoming GET request
+2019-09-01T10:19:24.599Z [info]: Connected to Mongoose DB
+2019-09-01T10:20:19.045Z [info]: Listening to port 8080
+2019-09-01T10:20:22.142Z [info]: Connected to Mongoose DB
+2019-09-01T10:20:35.376Z [info]: Listening to port 8080
+2019-09-01T10:20:36.808Z [info]: Connected to Mongoose DB
+2019-09-01T10:20:49.943Z [info]: Incoming GET request
+2019-09-01T10:20:54.622Z [error]: No articles found!
+2019-09-01T10:20:58.655Z [error]: No articles found!
+2019-09-01T10:21:02.222Z [error]: No articles found!
+2019-09-01T10:21:06.323Z [error]: No articles found!
+2019-09-01T10:21:09.704Z [error]: No articles found!
+2019-09-01T10:21:13.336Z [error]: No articles found!
+2019-09-01T10:21:18.264Z [error]: No articles found!
+2019-09-01T10:21:21.234Z [error]: No articles found!
+2019-09-01T10:21:24.403Z [error]: No articles found!
+2019-09-01T10:21:27.067Z [error]: No articles found!
+2019-09-01T10:22:05.689Z [info]: Listening to port 8080
+2019-09-01T10:22:06.866Z [info]: Connected to Mongoose DB
+2019-09-01T10:22:10.554Z [info]: Incoming GET request
+2019-09-01T10:22:12.348Z [error]: No articles found!
+2019-09-01T10:22:14.778Z [error]: No articles found!
+2019-09-01T10:22:17.093Z [error]: No articles found!
+2019-09-01T10:22:19.324Z [error]: No articles found!
+2019-09-01T10:22:21.009Z [error]: No articles found!
+2019-09-01T10:22:22.179Z [error]: No articles found!
+2019-09-01T10:22:24.612Z [error]: No articles found!
+2019-09-01T10:22:27.826Z [error]: No articles found!
+2019-09-01T10:22:29.308Z [error]: No articles found!
+2019-09-01T10:22:31.099Z [error]: No articles found!
+2019-09-01T10:22:32.266Z [error]: No articles found!
+2019-09-01T10:22:34.448Z [error]: No articles found!
+2019-09-01T10:22:37.318Z [error]: No articles found!
+2019-09-01T10:22:39.879Z [error]: No articles found!
+2019-09-01T10:22:43.483Z [error]: No articles found!
+2019-09-01T10:22:45.523Z [error]: No articles found!
+2019-09-01T10:22:49.089Z [error]: No articles found!
+2019-09-01T10:22:52.566Z [error]: No articles found!
+2019-09-01T10:22:55.628Z [error]: No articles found!
+2019-09-01T10:24:11.758Z [info]: Listening to port 8080
+2019-09-01T10:24:14.584Z [info]: Connected to Mongoose DB
+2019-09-01T10:24:42.365Z [info]: Listening to port 8080
+2019-09-01T10:24:42.405Z [info]: Incoming POST request
