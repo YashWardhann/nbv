@@ -19,7 +19,7 @@
     "body-parser": "^1.19.0",
     "compromise": "^11.14.3",
     "dotenv": "^8.1.0",
-    "ejs": "^2.6.2",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "mongoose": "^5.6.11",
     "natural": "^0.6.3",
