@@ -1,6 +1,5 @@
 import express from 'express';
 import ejs from 'ejs';
-
 import logger from './config/winston';
 import apiRoutes from './routes/api/api.routes.js';
 import mongoose  from 'mongoose';

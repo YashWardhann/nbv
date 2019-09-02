@@ -6,15 +6,15 @@ import MediaListing from '../models/media-model';
 import logger from '../config/winston';
 import request from 'request';
 import tokenize from './../utils/tokenize';
-import async from 'async';
-import { JaroWinklerDistance } from 'natural';
-import { parseString } from 'xml2js';
 import shuffleArray from './../utils/shuffle';
 import compareTokens from './../utils/compareTokens';
 
-const requestArticle = async function(sourceArticle, source) {
+async function requestArticle(sourceArticle, source) {
     return new Promise((resolve, reject) => {
-        request(`https://newsapi.org/v2/everything?q=trump+el+paso&domains=foxnews.com&apiKey=17279e5e52c04dc1a189434c07aab8df`, function(err, response, body) {
+
+        const keywords = tokenize(sourceArticle.title, { returnType: 'url' });
+
+        request(`https://newsapi.org/v2/everything?q=${ keywords }&domains=${ source.domain }&apiKey=${ process.env.NEWS_API_KEY }`, function(err, response, body) {
             if (err) { reject(err); }
 
             if (response.statusCode === 200) {
@@ -34,8 +34,7 @@ const requestArticle = async function(sourceArticle, source) {
                     resolve(articles);
                 } else {
                     reject('No articles found!');
-                }
-                
+                }                
             }
         });
     });
@@ -72,21 +71,18 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
         MediaListing.find({
             bias: newArticle.bias
         }, async function(err, docs) {
-            for (let doc of docs) {
-                dbSources.push(doc.name);
-            }
-            
-            // Shuffle the dbSources array for extra randomness 
-            dbSources = shuffleArray(dbSources);   
 
-            // Get tokens from the title in url format
-            let keywords_url = tokenize(sourceArticle.title, { returnType: 'url' });
+            docs = docs.map(doc => doc.name);
+            
+            // Shuffle the docs array for extra randomness 
+            docs = shuffleArray(docs);
+
 
             let similarArticles = [];
             
-            for (let source of dbSources) {
+            for (let doc of docs) {
                 try {
-                    const articles = await requestArticle(sourceArticle, source);
+                    const articles = await requestArticle(sourceArticle, doc);
                     console.log(articles);
                     const match = articles.reduce(function(prev, current) {
                         if (compareTokens(prev.title, sourceArticle.title) > compareTokens(current.title, sourceArticle.title)) {
@@ -97,7 +93,12 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
                     });
 
                     similarArticles.push(match);
-                    break;
+                    
+                    // Ensure two articles have been selected
+                    if (similarArticles.length == 2) {
+                        break;
+                    }
+
                 } catch (err) {
                     logger.error('No articles found!');
                     continue;
@@ -106,9 +107,11 @@ const fetchArticle =  async (sourceArticle, sourceBias) => {
                 }
             }
 
+            const article = similarArticles[Math.floor(Math.random() * similarArticles.length)];
+
             resolve({
-                title: undefined, 
-                url: undefined
+                title: article.length, 
+                url: article.url
             });
 
         });
