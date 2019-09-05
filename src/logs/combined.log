@@ -1098,3 +1098,71 @@
 2019-09-02T13:05:31.369Z [info]: Listening to port 8080
 2019-09-02T13:05:46.526Z [info]: Listening to port 8080
 2019-09-02T13:06:10.289Z [info]: Listening to port 8080
+2019-09-02T13:06:23.689Z [info]: Listening to port 8080
+2019-09-03T03:19:33.926Z [info]: Listening to port 8080
+2019-09-03T03:22:44.964Z [info]: Listening to port 8080
+2019-09-03T03:23:31.653Z [info]: Listening to port 8080
+2019-09-03T03:24:37.020Z [info]: Listening to port 8080
+2019-09-03T03:24:37.214Z [info]: Incoming GET request to: /api
+2019-09-03T03:24:37.364Z [info]: Incoming GET request to: /favicon.ico
+2019-09-03T03:25:26.912Z [info]: Listening to port 8080
+2019-09-03T03:26:20.021Z [info]: Listening to port 8080
+2019-09-03T03:26:21.765Z [info]: Incoming GET request to: /api
+2019-09-03T03:27:17.153Z [info]: Listening to port 8080
+2019-09-03T03:27:24.052Z [info]: Incoming GET request to: /api
+2019-09-03T03:28:46.974Z [info]: Listening to port 8080
+2019-09-03T03:29:58.419Z [info]: Listening to port 8080
+2019-09-03T03:30:24.017Z [info]: Listening to port 8080
+2019-09-03T03:30:37.120Z [info]: Incoming GET request to: /api
+2019-09-03T03:31:01.926Z [info]: Listening to port 8080
+2019-09-03T03:31:44.233Z [info]: Listening to port 8080
+2019-09-03T03:32:39.166Z [info]: Listening to port 8080
+2019-09-03T03:33:38.391Z [info]: Listening to port 8080
+2019-09-03T03:34:08.777Z [info]: Listening to port 8080
+2019-09-03T03:34:24.215Z [info]: Listening to port 8080
+2019-09-03T03:35:35.584Z [info]: Listening to port 8080
+2019-09-03T03:35:52.772Z [info]: Listening to port 8080
+2019-09-03T03:36:12.787Z [info]: Listening to port 8080
+2019-09-03T03:36:18.248Z [info]: Incoming GET request to: /api
+2019-09-03T03:36:24.066Z [info]: Incoming GET request to: /api
+2019-09-03T03:37:03.810Z [info]: Listening to port 8080
+2019-09-03T03:37:06.627Z [info]: Incoming GET request to: /api
+2019-09-03T03:37:42.086Z [info]: Listening to port 8080
+2019-09-03T03:38:16.951Z [info]: Listening to port 8080
+2019-09-03T03:38:24.929Z [info]: Incoming GET request to: /api
+2019-09-03T03:38:24.939Z [info]: [API]: 6.6766ms
+2019-09-03T03:38:39.201Z [info]: Listening to port 8080
+2019-09-03T03:39:05.125Z [info]: Listening to port 8080
+2019-09-03T03:39:07.935Z [info]: Incoming GET request to: /api
+2019-09-03T03:39:07.942Z [warn]: [API]: 3.786799ms (Violation by -496.213201ms)
+2019-09-03T03:39:19.320Z [info]: Listening to port 8080
+2019-09-03T03:39:21.368Z [info]: Incoming GET request to: /api
+2019-09-03T03:39:21.377Z [warn]: [API]: 4.7708ms (Violation by 3.7708000000000004ms)
+2019-09-03T03:41:38.272Z [info]: Listening to port 8080
+2019-09-03T03:41:44.541Z [info]: Incoming GET request to: /api
+2019-09-03T03:41:44.550Z [warn]: [API]: 5.3481ms (Violation by 4.35ms)
+2019-09-03T03:42:15.846Z [info]: Listening to port 8080
+2019-09-03T03:42:19.166Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:19.174Z [info]: [API]: 5.8293ms
+2019-09-03T03:42:22.893Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:22.896Z [info]: [API]: 0.7603ms
+2019-09-03T03:42:24.471Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:24.474Z [info]: [API]: 0.896899ms
+2019-09-03T03:42:25.065Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:25.066Z [info]: [API]: 0.3052ms
+2019-09-03T03:42:25.260Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:25.263Z [info]: [API]: 0.619ms
+2019-09-03T03:42:25.412Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:25.414Z [info]: [API]: 0.262301ms
+2019-09-03T03:42:25.542Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:25.546Z [info]: [API]: 0.728999ms
+2019-09-03T03:42:29.998Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:30.000Z [info]: [API]: 0.4881ms
+2019-09-03T03:42:32.541Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:32.545Z [info]: [API]: 1.152199ms
+2019-09-03T03:42:34.903Z [info]: Incoming GET request to: /api
+2019-09-03T03:42:34.905Z [info]: [API]: 0.582599ms
+2019-09-03T03:43:03.927Z [info]: Listening to port 8080
+2019-09-03T03:43:07.208Z [info]: Incoming GET request to: /api
+2019-09-03T03:43:07.348Z [warn]: [API]: 132.721499ms (Violation by 12.72ms)
+2019-09-03T03:43:22.882Z [info]: Listening to port 8080

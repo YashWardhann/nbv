@@ -3,12 +3,13 @@ import ejs from 'ejs';
 import logger from './config/winston';
 import apiRoutes from './routes/api/api.routes.js';
 import mongoose  from 'mongoose';
+import path from 'path';
 
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 
 // Connect to mongoose db
 mongoose.connect('mongodb://admin:admin12@ds243897.mlab.com:43897/news-bias', {
@@ -23,7 +24,7 @@ mongoose.connect('mongodb://admin:admin12@ds243897.mlab.com:43897/news-bias', {
 
 // Primary routes 
 app.use((req, res, next) => {
-    logger.info(`Incoming ${req.method} request`);
+    logger.info(`Incoming ${req.method} request to: ${req.url}`);
     next();
 });
 

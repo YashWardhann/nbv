@@ -17,7 +17,6 @@ const requestArticle = async function (sourceArticle, source) {
 
                     // Keep only those article whose source name is the same and title matches
                     articles = articles.filter(function(article) {
-                        console.log(article.source.name, source);
                         if (
                             article.source.name === source &&
                             compareTokens(article.title, sourceArticle.title) >= 0.2

@@ -9,7 +9,7 @@ const logDir = './src/logs';
 if(!fs.existsSync(logDir)) {
     // Create the logs directory if it doesnt exist
     fs.mkdirSync(logDir); 
-    console.log('Created Directory');
+    console.log('Created Log Directory');
 }
 
 
@@ -40,7 +40,7 @@ const logger = createLogger({
     ),
 
     transports: [
-        // - Print all logs with level 'info' and 'error' to the console
+        // - Print all logs to the console
         new transports.Console({
             colorize: 'all',
             format: combine(
@@ -53,8 +53,10 @@ const logger = createLogger({
 
         // - Write all logs with level 'info' and 'error' to 'combined.log'
         // - Write all logs with level 'error' to 'error.log'
+        // - Write all logs with level 'warn' to 'error.log'
         new transports.File({ filename: path.join(logDir, '/combined.log') }),
-        new transports.File({ filename: path.join(logDir, '/error.log'), level: 'error' })
+        new transports.File({ filename: path.join(logDir, '/error.log'), level: 'error' }),
+        new transports.File({ filename: path.join(logDir, 'error.log'), level: 'warn' })
         
     ]
 });

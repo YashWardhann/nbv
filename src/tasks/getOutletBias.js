@@ -29,8 +29,6 @@ const getOutletBias = async function(sourceArticle) {
                 // Initialize an empty object to store 
                 // the matched record
                 let matched = {
-                    name: undefined, 
-                    bias: undefined, 
                     distance: 0
                 };
 

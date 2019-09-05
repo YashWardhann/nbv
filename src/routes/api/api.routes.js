@@ -2,15 +2,31 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import getOutletBias from './../../tasks/getOutletBias';
 import fetchArticle from './../../tasks/fetchArticle';
-
-import logger from './../../config/winston';
+import { performance, PerformanceObserver } from 'perf_hooks';
+import logger from './../../config/winston';    
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 let router = express.Router();
 
+const performanceObserver = new PerformanceObserver((items) => {
+    items.getEntries().forEach((item) => {
+        if (item.duration > 120) {
+            logger.warn(`[${item.name}]: ${item.duration}ms (Violation by ${Math.round((item.duration - 120) * 100) / 100}ms)`);
+        } else {
+            logger.info(`[${item.name}]: ${item.duration}ms`);
+        }
+    })
+});
+
+performanceObserver.observe({entryTypes: ['measure']});
+
 router.get('/', (req, res) => {
+    performance.mark('a');
     res.send('Hey!');
+    performance.mark('b');
+
+    performance.measure('API', 'a', 'b');
 });
 
 router.get('/0', async (req,res) => {
@@ -37,7 +53,9 @@ router.get('/0', async (req,res) => {
 
 router.post('/0', urlencodedParser , async (req,res) => {
 
-    // Fetch the bias of the publisher of the 
+    // Begin performance test 
+    performance.mark('Beginning sanity check');
+
     // source article from remote db 
     const bias = await getOutletBias({
         url: 'bbc'
@@ -56,6 +74,10 @@ router.post('/0', urlencodedParser , async (req,res) => {
             });
             logger.error(`ERROR (404): ${err}`);
         });
+
+    performance.mark('Ending sanity check');
+
+    performance.measure('API Request', 'Beginning sanity check', 'Ending sanity check');
 });
 
 export default router;

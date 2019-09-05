@@ -73,3 +73,7 @@
 2019-09-01T10:22:49.089Z [error]: No articles found!
 2019-09-01T10:22:52.566Z [error]: No articles found!
 2019-09-01T10:22:55.628Z [error]: No articles found!
+2019-09-03T03:39:07.942Z [warn]: [API]: 3.786799ms (Violation by -496.213201ms)
+2019-09-03T03:39:21.377Z [warn]: [API]: 4.7708ms (Violation by 3.7708000000000004ms)
+2019-09-03T03:41:44.550Z [warn]: [API]: 5.3481ms (Violation by 4.35ms)
+2019-09-03T03:43:07.348Z [warn]: [API]: 132.721499ms (Violation by 12.72ms)
