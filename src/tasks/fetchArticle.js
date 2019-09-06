@@ -42,6 +42,9 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
 
             for (let doc of docs) {
                 try {
+
+                    console.log('Processing for', doc);
+
                     const articles = await requestArticle(sourceArticle, doc);
                     console.log(articles);
                     const match = articles.reduce(function(prev, current) {
@@ -70,7 +73,7 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
             const article = similarArticles[Math.floor(Math.random() * similarArticles.length)];
 
             resolve({
-                title: article.length,
+                title: article.title,
                 url: article.url
             });
 

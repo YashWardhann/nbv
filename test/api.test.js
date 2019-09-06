@@ -8,10 +8,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Post article to /v1/article', () => {
+describe('Post article to /api/0', () => {
     it('Get a new opposing article', (done) => {
         chai.request(server)
-            .post('/v1/article')        
+            .post('/api/0')        
             .set('content-type', 'application/x-www-form-urlencoded')
             .send({
                 text: 'Hey there!', 

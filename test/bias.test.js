@@ -31,10 +31,9 @@ function search(array, key) {
 
 // Make connection with MongoDB to fetch bias
 describe('Get the bias of media outlet', () => {
-
     // Before perfoming the test a sandbox connection to the 
     // remote database is created 
-    before( function(done) {
+    before((done) => {
         mongoose.connect('mongodb://admin:admin12@ds243897.mlab.com:43897/news-bias', {
             useNewUrlParser: true
         })

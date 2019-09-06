@@ -1,11 +1,12 @@
 import request from 'request';
 import tokenize from './../utils/tokenize';
+import compareTokens from './../utils/compareTokens';
 
 const requestArticle = async function (sourceArticle, source) {
     return new Promise((resolve, reject) => {
         const keywords = tokenize(sourceArticle.title, { returnType: "url" });
 
-        request(`https://newsapi.org/v2/everything?q=${keywords}&domains=${source.domain}&apiKey=${process.env.NEWS_API_KEY}`,
+        request(`https://newsapi.org/v2/everything?q=${keywords}&domains=foxnews.com&apiKey=${process.env.NEWS_API_KEY}`,
             function(err, response, body) {
                 if (err) {
                     reject(err);
@@ -17,6 +18,7 @@ const requestArticle = async function (sourceArticle, source) {
 
                     // Keep only those article whose source name is the same and title matches
                     articles = articles.filter(function(article) {
+                        console.log(source, article.source.name);
                         if (
                             article.source.name === source &&
                             compareTokens(article.title, sourceArticle.title) >= 0.2

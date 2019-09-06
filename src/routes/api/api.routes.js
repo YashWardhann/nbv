@@ -11,8 +11,8 @@ let router = express.Router();
 
 const performanceObserver = new PerformanceObserver((items) => {
     items.getEntries().forEach((item) => {
-        if (item.duration > 120) {
-            logger.warn(`[${item.name}]: ${item.duration}ms (Violation by ${Math.round((item.duration - 120) * 100) / 100}ms)`);
+        if (item.duration > 75000) {
+            logger.warn(`[${item.name}]: ${item.duration}ms (Violation by ${Math.round((item.duration - 75000) * 100) / 100}ms)`);
         } else {
             logger.info(`[${item.name}]: ${item.duration}ms`);
         }
@@ -22,24 +22,31 @@ const performanceObserver = new PerformanceObserver((items) => {
 performanceObserver.observe({entryTypes: ['measure']});
 
 router.get('/', (req, res) => {
-    performance.mark('a');
     res.send('Hey!');
-    performance.mark('b');
-
-    performance.measure('API', 'a', 'b');
 });
 
 router.get('/0', async (req,res) => {
+    
+    // Begin performance test 
+    performance.mark('Beginning sanity check');
+
     const bias = await getOutletBias({
         url: 'bbc'
     });
         
     fetchArticle({
-        title: "Fires in Amazon rainforest rage at record rate"
+        title: "How to tell if a Trump recession is coming"
     }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);
             logger.info(`Sent article data to ${ req.url } (METHOD: ${ req.method })`);
+           
+            // End performance test 
+            performance.mark('Ending sanity test');
+
+            // Log performance details 
+            performance.measure('API Sanity test', 'Beginning sanity test', 'Ending sanity test');
+
         })
         .catch((err) => {
             res.status(404).json({
@@ -51,33 +58,35 @@ router.get('/0', async (req,res) => {
 
 });
 
-router.post('/0', urlencodedParser , async (req,res) => {
-
+router.post('/0', urlencodedParser , async (req,res) => {    
     // Begin performance test 
     performance.mark('Beginning sanity check');
 
-    // source article from remote db 
     const bias = await getOutletBias({
         url: 'bbc'
     });
-    
-    // Fetch an article and sent back response 
-    // to the remote requester 
-    fetchArticle(bias)
+        
+    fetchArticle({
+        title: "How to tell if a Trump recession is coming"
+    }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);
             logger.info(`Sent article data to ${ req.url } (METHOD: ${ req.method })`);
+           
+            // End performance test 
+            performance.mark('Ending sanity test');
+
+            // Log performance details 
+            performance.measure('API Sanity test', 'Beginning sanity test', 'Ending sanity test');
+
         })
         .catch((err) => {
             res.status(404).json({
-                'error': err
-            });
-            logger.error(`ERROR (404): ${err}`);
+                'status': 404,
+                'error': err                
+            })
+            logger.error(`${err} (404)`);
         });
-
-    performance.mark('Ending sanity check');
-
-    performance.measure('API Request', 'Beginning sanity check', 'Ending sanity check');
 });
 
 export default router;
