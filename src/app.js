@@ -28,10 +28,8 @@ app.use((req, res, next) => {
     next();
 });
 
-
 // Mount the v1 api routes
 app.use('/api/', apiRoutes);
-
 
 // Allows to set alternative port during launch
 const altPort = (process.argv[2]) ? process.argv[2] : 8080;
