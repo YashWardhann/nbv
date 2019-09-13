@@ -9,7 +9,7 @@ const requestArticle = async function (sourceArticle, source) {
             const keywords = tokenize(sourceArticle.title, { returnType: "url" });
             let outletID = await getOutletID(source);
             console.log(outletID);
-            request(`https://newsapi.org/v2/everything?q=${keywords}&source=${outletID}&apiKey=${process.env.NEWS_API_KEY}`,
+            request(`https://newsapi.org/v2/everything?q=${keywords}&sources=${outletID}&apiKey=${process.env.NEWS_API_KEY}`,
                 function(err, response, body) {
                     if (err) {
                         reject(err);

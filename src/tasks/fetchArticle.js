@@ -42,11 +42,9 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
 
             for (let doc of docs) {
                 try {
-
                     console.log('Processing for', doc);
 
                     const articles = await requestArticle(sourceArticle, doc);
-                    console.log(articles);
                     const match = articles.reduce(function(prev, current) {
                         if (compareTokens(prev.title, sourceArticle.title) > compareTokens(current.title, sourceArticle.title)) {
                             return prev;

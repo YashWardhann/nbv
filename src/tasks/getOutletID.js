@@ -15,8 +15,7 @@ const getOutletID = async function(outletName) {
                 let sources = body.sources;
 
                 sources = sources.filter(function(source) {
-                    console.log(source.name, outletName);
-                    if(JaroWinklerDistance(source.name, outletName, undefined, true) >= 0.8) {
+                    if(source.name === outletName) {
                         return source;
                     }
                 });

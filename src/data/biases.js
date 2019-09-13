@@ -1,7 +1,7 @@
 module.exports = 
 [
   {
-    "name": "ABC",
+    "name": "ABC News",
     "y": 57,
     "x": 0
   },
@@ -11,7 +11,7 @@ module.exports =
     "x": 0
   },
   {
-    "name": "Al Jazeera",
+    "name": "Al Jazeera English",
     "y": 54,
     "x": -20
   },
@@ -46,7 +46,7 @@ module.exports =
     "x": 4
   },
   {
-    "name": "Breitbart",
+    "name": "Breitbart News",
     "y": 8,
     "x": 34
   },
@@ -56,12 +56,12 @@ module.exports =
     "x": 0
   },
   {
-    "name": "BuzzFeed News",
+    "name": "BuzzFeed",
     "y": 51,
     "x": -21
   },
   {
-    "name": "CBS",
+    "name": "CBS News",
     "y": 57,
     "x": 4
   },
@@ -176,7 +176,7 @@ module.exports =
     "x": -20
   },
   {
-    "name": "Huffington Post",
+    "name": "The Huffington Post",
     "y": 24,
     "x": -20
   },
@@ -236,7 +236,7 @@ module.exports =
     "x": 20
   },
   {
-    "name": "NBC",
+    "name": "NBC News",
     "y": 57,
     "x": -3
   },
@@ -251,7 +251,7 @@ module.exports =
     "x": 18
   },
   {
-    "name": "New York Times",
+    "name": "The New York Times",
     "y": 52,
     "x": -5
   },
@@ -466,7 +466,7 @@ module.exports =
     "x": -12
   },
   {
-    "name": "Vice",
+    "name": "Vice News",
     "y": 42,
     "x": -10
   },
@@ -476,7 +476,7 @@ module.exports =
     "x": -16
   },
   {
-    "name": "Wall Street Journal",
+    "name": "The Wall Street Journal",
     "y": 53,
     "x": 11
   },
@@ -496,12 +496,12 @@ module.exports =
     "x": -23
   },
   {
-    "name": "Washington Post",
+    "name": "The Washington Post",
     "y": 51,
     "x": -10
   },
   {
-    "name": "Washington Times",
+    "name": "The Washington Times",
     "y": 33,
     "x": 20
   },
