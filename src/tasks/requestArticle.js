@@ -8,7 +8,6 @@ const requestArticle = async function (sourceArticle, source) {
         try {
             const keywords = tokenize(sourceArticle.title, { returnType: "url" });
             let outletID = await getOutletID(source);
-            console.log(outletID);
             request(`https://newsapi.org/v2/everything?q=${keywords}&sources=${outletID}&apiKey=${process.env.NEWS_API_KEY}`,
                 function(err, response, body) {
                     if (err) {
@@ -18,13 +17,10 @@ const requestArticle = async function (sourceArticle, source) {
                     if (response.statusCode === 200) {
                         body = JSON.parse(body);
                         let articles = body.articles;
-                        
+
                         // Keep only those article whose source name is the same and title matches
                         articles = articles.filter(function(article) {
-                            if (
-                                article.source.name === source &&
-                                compareTokens(article.title, sourceArticle.title) >= 0.2
-                            ) {
+                            if (article.source.name === source && compareTokens(article.title, sourceArticle.title) >= 0.2) {
                                 return article;
                             }
                         });

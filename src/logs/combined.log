@@ -1602,3 +1602,96 @@
 2019-09-13T05:56:05.791Z [info]: Listening to port 8080
 2019-09-13T05:56:07.408Z [info]: Connected to Mongoose DB
 2019-09-13T05:58:56.810Z [info]: Listening to port 8080
+2019-09-13T05:59:11.571Z [info]: Listening to port 8080
+2019-09-13T05:59:13.406Z [info]: Connected to Mongoose DB
+2019-09-13T07:25:39.785Z [info]: Listening to port 8080
+2019-09-13T07:25:44.888Z [info]: Connected to Mongoose DB
+2019-09-13T08:51:14.154Z [info]: Listening to port 8080
+2019-09-13T08:51:15.323Z [info]: Connected to Mongoose DB
+2019-09-13T08:51:26.744Z [info]: Listening to port 8080
+2019-09-13T08:51:27.972Z [info]: Connected to Mongoose DB
+2019-09-13T08:51:31.161Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:52:16.657Z [info]: Listening to port 8080
+2019-09-13T08:52:17.345Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:52:17.837Z [info]: Connected to Mongoose DB
+2019-09-13T08:52:19.086Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:52:28.666Z [info]: Listening to port 8080
+2019-09-13T08:52:29.867Z [info]: Connected to Mongoose DB
+2019-09-13T08:52:30.344Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:52:44.941Z [info]: Listening to port 8080
+2019-09-13T08:52:46.270Z [info]: Connected to Mongoose DB
+2019-09-13T08:52:55.622Z [info]: Listening to port 8080
+2019-09-13T08:52:56.748Z [info]: Connected to Mongoose DB
+2019-09-13T08:52:58.002Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:53:11.560Z [info]: Listening to port 8080
+2019-09-13T08:53:12.795Z [info]: Connected to Mongoose DB
+2019-09-13T08:53:22.222Z [info]: Listening to port 8080
+2019-09-13T08:53:23.477Z [info]: Connected to Mongoose DB
+2019-09-13T08:53:24.321Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:53:57.589Z [info]: Listening to port 8080
+2019-09-13T08:53:58.769Z [info]: Connected to Mongoose DB
+2019-09-13T08:53:59.365Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:55:57.876Z [info]: Listening to port 8080
+2019-09-13T08:55:59.123Z [info]: Connected to Mongoose DB
+2019-09-13T08:56:04.219Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:56:09.899Z [error]: No articles found!
+2019-09-13T08:56:11.073Z [error]: No articles found!
+2019-09-13T08:56:14.341Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-13T08:56:14.342Z [info]: [API Sanity test]: 19296.543401ms
+2019-09-13T08:57:02.899Z [info]: Listening to port 8080
+2019-09-13T08:57:04.024Z [info]: Connected to Mongoose DB
+2019-09-13T08:57:08.600Z [info]: Incoming GET request to: /api/0
+2019-09-13T08:57:10.622Z [error]: No articles found!
+2019-09-13T08:57:14.270Z [error]: No articles found!
+2019-09-13T08:57:15.469Z [error]: No articles found!
+2019-09-13T08:57:16.686Z [error]: No articles found!
+2019-09-13T08:57:17.864Z [error]: No articles found!
+2019-09-13T08:57:18.998Z [error]: No articles found!
+2019-09-13T08:57:20.208Z [error]: No articles found!
+2019-09-13T08:57:22.243Z [error]: No articles found!
+2019-09-13T08:57:26.399Z [error]: No articles found!
+2019-09-13T08:57:27.617Z [error]: No articles found!
+2019-09-13T08:57:28.756Z [error]: No articles found!
+2019-09-13T08:57:35.418Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-13T08:57:35.419Z [info]: [API Sanity test]: 35644.9621ms
+2019-09-13T08:58:32.497Z [info]: Listening to port 8080
+2019-09-13T08:58:33.795Z [info]: Connected to Mongoose DB
+2019-09-13T08:58:49.401Z [info]: Listening to port 8080
+2019-09-13T08:58:50.647Z [info]: Connected to Mongoose DB
+2019-09-13T08:59:09.592Z [info]: Listening to port 8080
+2019-09-13T08:59:10.665Z [info]: Connected to Mongoose DB
+2019-09-13T08:59:20.135Z [info]: Listening to port 8080
+2019-09-13T08:59:21.417Z [info]: Connected to Mongoose DB
+2019-09-13T08:59:44.579Z [info]: Listening to port 8080
+2019-09-13T08:59:45.703Z [info]: Connected to Mongoose DB
+2019-09-13T09:01:02.036Z [info]: Listening to port 8080
+2019-09-13T09:01:03.316Z [info]: Connected to Mongoose DB
+2019-09-13T09:01:06.856Z [info]: Incoming GET request to: /api/0
+2019-09-13T09:01:12.741Z [error]: No articles found for Washington Free Beacon
+2019-09-13T09:01:13.975Z [error]: No articles found for The Daily Wire
+2019-09-13T09:01:15.234Z [error]: No articles found for Reason
+2019-09-13T09:01:16.413Z [error]: No articles found for Conservative Tribune
+2019-09-13T09:01:17.613Z [error]: No articles found for The Federalist
+2019-09-13T09:01:21.391Z [error]: No articles found for The Weekly Standard
+2019-09-13T09:01:22.561Z [error]: No articles found for New York Post
+2019-09-13T09:01:23.868Z [error]: No articles found for The Gateway Pundit
+2019-09-13T09:01:25.116Z [error]: No articles found for Daily Caller
+2019-09-13T09:01:26.269Z [error]: No articles found for The Blaze
+2019-09-13T09:01:27.654Z [error]: No articles found for InfoWars
+2019-09-13T09:01:28.861Z [error]: No articles found for WorldTruth.Tv
+2019-09-13T09:01:31.247Z [error]: No articles found for WND
+2019-09-13T09:01:32.497Z [error]: No articles found for RedState
+2019-09-13T09:01:33.687Z [error]: No articles found for OAN
+2019-09-13T09:01:34.898Z [error]: No articles found for Twitchy
+2019-09-13T09:01:36.310Z [error]: No articles found for PJ Media
+2019-09-13T09:01:40.272Z [error]: No articles found for Washington Examiner
+2019-09-13T09:01:42.206Z [error]: No articles found for The Washington Times
+2019-09-13T09:01:44.166Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-13T09:01:44.168Z [info]: [API Sanity test]: 49222.7059ms
+2019-09-13T09:02:05.442Z [info]: Listening to port 8080
+2019-09-13T09:02:06.749Z [info]: Connected to Mongoose DB
+2019-09-13T09:02:17.853Z [info]: Listening to port 8080
+2019-09-13T09:02:19.059Z [info]: Connected to Mongoose DB
+2019-09-13T09:02:34.007Z [info]: Listening to port 8080
+2019-09-13T09:02:41.323Z [info]: Listening to port 8080
+2019-09-13T09:02:42.602Z [info]: Connected to Mongoose DB

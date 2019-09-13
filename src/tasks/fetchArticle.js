@@ -34,16 +34,14 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
             bias: newArticle.bias
         }, async function(err, docs) {
             docs = docs.map(doc => doc.name);
-          
+
             // Shuffle the docs array for extra randomness 
             docs = shuffleArray(docs);
-            
             let similarArticles = [];
 
             for (let doc of docs) {
                 try {
                     console.log('Processing for', doc);
-
                     const articles = await requestArticle(sourceArticle, doc);
                     const match = articles.reduce(function(prev, current) {
                         if (compareTokens(prev.title, sourceArticle.title) > compareTokens(current.title, sourceArticle.title)) {
@@ -55,13 +53,12 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
 
                     similarArticles.push(match);
 
-                    // Ensure two articles have been selected
-                    if (similarArticles.length == 2) {
+                    // Ensure four articles have been selected
+                    if (similarArticles.length == 4) {
                         break;
                     }
-
                 } catch (err) {
-                    logger.error('No articles found!');
+                    logger.error(`No articles found for ${doc}`);
                     continue;
                 } finally {
                     console.log(similarArticles);

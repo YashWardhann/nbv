@@ -35,7 +35,7 @@ router.get('/0', async (req,res) => {
     });
         
     fetchArticle({
-        title: "How to tell if a Trump recession is coming"
+        title: "House takes major step towards impeachment"
     }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);
@@ -67,7 +67,7 @@ router.post('/0', urlencodedParser , async (req,res) => {
     });
         
     fetchArticle({
-        title: "How to tell if a Trump recession is coming"
+        title: "House takes major step towards impeachment"
     }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);
