@@ -20,14 +20,11 @@ const getOutletID = async function(outletName) {
                     }
                 });
 
-                console.log(sources);
-
                 if(sources.length && 'id' in sources[0]) {
                     resolve(sources[0].id);
                 } else {
                     reject('No sources matched.')
                 }
-
             } else {
                 reject(`HTTP Request failure: Code ${response.statusCode}`);
             }

@@ -18,7 +18,7 @@ const requestArticle = async function (sourceArticle, source) {
                     if (response.statusCode === 200) {
                         body = JSON.parse(body);
                         let articles = body.articles;
-
+                        
                         // Keep only those article whose source name is the same and title matches
                         articles = articles.filter(function(article) {
                             if (

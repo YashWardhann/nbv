@@ -1596,3 +1596,9 @@
 2019-09-13T05:50:25.722Z [info]: Listening to port 8080
 2019-09-13T05:50:26.898Z [info]: Connected to Mongoose DB
 2019-09-13T05:50:27.585Z [info]: Incoming GET request to: /api/0
+2019-09-13T05:50:49.495Z [info]: Listening to port 8080
+2019-09-13T05:50:53.362Z [info]: Connected to Mongoose DB
+2019-09-13T05:50:55.748Z [info]: Incoming GET request to: /api/0
+2019-09-13T05:56:05.791Z [info]: Listening to port 8080
+2019-09-13T05:56:07.408Z [info]: Connected to Mongoose DB
+2019-09-13T05:58:56.810Z [info]: Listening to port 8080
