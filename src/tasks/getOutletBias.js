@@ -25,6 +25,7 @@ const getOutletBias = async function(sourceArticle) {
         function(err, docs) {
             if(err) {
                 reject(err);
+                throw new Error(err);
             } else {
                 // Initialize an empty object to store 
                 // the matched record
