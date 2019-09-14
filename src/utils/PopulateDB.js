@@ -1,8 +1,10 @@
 const Media = require('../models/media-model');
 const list = require('../data/biases');
 const mongoose = require('mongoose');
+const request = require('request');
+
 function PopulateDB(data) {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             // Clear out all the records
             Media.deleteMany({}, 
@@ -19,6 +21,7 @@ function PopulateDB(data) {
                     params: {
                         x: data[i].x, 
                         y: data[i].y, 
+                        api_avail: data[i].api_avail,
                         region: {
                             region_name: 'Worldwide', 
                             isLocked: 0
