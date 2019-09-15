@@ -60,7 +60,7 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                     similarArticles.push(match);
 
                     // Ensure four articles have been selected
-                    if (similarArticles.length >= 4) {
+                    if (similarArticles.length) {
                         break;
                     }
                 } catch (err) {
@@ -71,11 +71,11 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                 }
             }
 
-            const article = similarArticles[Math.floor(Math.random() * similarArticles.length)];
-
             resolve({
-                title: article.title,
-                url: article.url
+                status: 200,
+                title: similarArticles[0].title,
+                url: similarArticles[0].url,
+                bias: newArticle.bias
             });
 
         });

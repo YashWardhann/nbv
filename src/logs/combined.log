@@ -66,3 +66,87 @@
 2019-09-14T11:50:15.790Z [info]: Connected to Mongoose DB
 2019-09-14T11:53:59.197Z [info]: Listening to port 8080
 2019-09-14T11:54:01.610Z [info]: Connected to Mongoose DB
+2019-09-15T05:37:23.767Z [info]: Listening to port 8080
+2019-09-15T05:37:25.278Z [info]: Connected to Mongoose DB
+2019-09-15T05:37:29.098Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:37:42.085Z [info]: No articles found for The Washington Times
+2019-09-15T05:38:02.219Z [info]: No articles found for The American Conservative
+2019-09-15T05:38:02.234Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-15T05:38:02.237Z [info]: [API Sanity test]: 45832.123399ms
+2019-09-15T05:38:02.311Z [info]: Incoming GET request to: /favicon.ico
+2019-09-15T05:38:13.565Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:38:27.395Z [info]: No articles found for The American Conservative
+2019-09-15T05:38:31.950Z [info]: No articles found for The Washington Times
+2019-09-15T05:38:31.966Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-15T05:38:31.970Z [warn]: [API Sanity test]: 75565.88ms (Violation by 565.88ms)
+2019-09-15T05:38:38.295Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:38:50.865Z [info]: No articles found for The American Conservative
+2019-09-15T05:38:56.466Z [info]: No articles found for The Washington Times
+2019-09-15T05:39:02.321Z [info]: Listening to port 8080
+2019-09-15T05:39:02.341Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:39:08.568Z [info]: Connected to Mongoose DB
+2019-09-15T05:39:15.669Z [info]: No articles found for The American Conservative
+2019-09-15T05:39:30.243Z [info]: No articles found for The Washington Times
+2019-09-15T05:39:36.695Z [info]: Listening to port 8080
+2019-09-15T05:39:37.301Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:39:40.878Z [info]: Connected to Mongoose DB
+2019-09-15T05:39:41.901Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:39:52.740Z [info]: Listening to port 8080
+2019-09-15T05:39:52.912Z [info]: Incoming GET request to: /api/0
+2019-09-15T05:39:57.023Z [info]: Connected to Mongoose DB
+2019-09-15T05:40:03.916Z [info]: No articles found for The American Conservative
+2019-09-15T05:40:06.591Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-15T05:40:06.592Z [info]: [API Sanity test]: 17937.0542ms
+2019-09-15T05:43:29.180Z [info]: Listening to port 8080
+2019-09-15T06:34:03.706Z [info]: Listening to port 8080
+2019-09-15T06:34:09.012Z [info]: Connected to Mongoose DB
+2019-09-15T06:34:29.682Z [info]: Listening to port 8080
+2019-09-15T06:34:36.586Z [info]: Connected to Mongoose DB
+2019-09-15T06:35:48.807Z [info]: Incoming POST request to: /
+2019-09-15T06:37:56.816Z [info]: Incoming POST request to: /
+2019-09-15T06:38:46.982Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:38:54.447Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:38:54.450Z [warn]: [API Sanity test]: 269554.0775ms (Violation by 194554.08ms)
+2019-09-15T06:40:25.696Z [info]: Listening to port 8080
+2019-09-15T06:40:27.982Z [info]: Connected to Mongoose DB
+2019-09-15T06:40:34.318Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:40:39.118Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:40:39.124Z [info]: [API Sanity test]: 19624.6049ms
+2019-09-15T06:40:43.637Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:40:44.195Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:40:47.338Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:40:47.339Z [info]: [API Sanity test]: 27841.6942ms
+2019-09-15T06:40:49.874Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:40:49.875Z [info]: [API Sanity test]: 30377.2312ms
+2019-09-15T06:40:49.998Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:40:52.932Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:40:52.933Z [info]: [API Sanity test]: 33435.6402ms
+2019-09-15T06:41:14.430Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:41:18.758Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:41:18.758Z [info]: [API Sanity test]: 59260.4188ms
+2019-09-15T06:42:11.828Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:42:15.749Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:42:15.751Z [warn]: [API Sanity test]: 116251.834ms (Violation by 41251.83ms)
+2019-09-15T06:43:18.333Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:43:24.870Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:43:24.871Z [warn]: [API Sanity test]: 185372.6905ms (Violation by 110372.69ms)
+2019-09-15T06:44:10.335Z [info]: Listening to port 8080
+2019-09-15T06:44:14.687Z [info]: Connected to Mongoose DB
+2019-09-15T06:44:48.677Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:44:52.505Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:44:52.506Z [info]: [API Sanity test]: 45557.1757ms
+2019-09-15T06:46:48.110Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:46:51.796Z [info]: No articles found for The Washington Times
+2019-09-15T06:46:57.733Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:46:57.735Z [warn]: [API Sanity test]: 170785.512599ms (Violation by 95785.51ms)
+2019-09-15T06:47:37.517Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:47:45.124Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:47:45.125Z [warn]: [API Sanity test]: 218176.3511ms (Violation by 143176.35ms)
+2019-09-15T06:48:26.121Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:48:32.699Z [info]: No articles found for The American Conservative
+2019-09-15T06:48:39.132Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:48:39.134Z [warn]: [API Sanity test]: 272184.9961ms (Violation by 197185ms)
+2019-09-15T06:49:02.517Z [info]: Incoming POST request to: /api/0
+2019-09-15T06:49:10.788Z [info]: Sent article data to /0 (METHOD: POST)
+2019-09-15T06:49:10.789Z [warn]: [API Sanity test]: 303839.855ms (Violation by 228839.86ms)
+2019-09-15T06:49:50.767Z [info]: Listening to port 8080
