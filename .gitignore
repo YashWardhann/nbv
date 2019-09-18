@@ -1,4 +1,4 @@
-client/node_modules
-client/src/logs
-client/.env
+server/node_modules
+server/src/logs
+server/.env
 node_modules
