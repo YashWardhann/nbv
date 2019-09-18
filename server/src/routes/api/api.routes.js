@@ -59,34 +59,34 @@ router.get('/0', async (req,res) => {
 });
 
 router.post('/0', urlencodedParser , async (req,res) => {    
-    // Begin performance test 
-    performance.mark('Beginning sanity check');
+   // Begin performance test 
+   performance.mark('Beginning sanity check');
 
-    const bias = await getOutletBias({
-        url: 'bbc'
-    });
-        
-    fetchArticle({
-        title: "House takes major step towards impeachment"
-    }, 'left')
-        .then((newArticle) => {
-            res.status(200).json(newArticle);
-            logger.info(`Sent article data to ${ req.url } (METHOD: ${ req.method })`);
-           
-            // End performance test 
-            performance.mark('Ending sanity test');
+   const bias = await getOutletBias({
+       url: 'bbc'
+   });
+       
+   fetchArticle({
+       title: "House takes major step towards impeachment"
+   }, 'left')
+       .then((newArticle) => {
+           res.status(200).json(newArticle);
+           logger.info(`Sent article data to ${ req.url } (METHOD: ${ req.method })`);
+          
+           // End performance test 
+           performance.mark('Ending sanity test');
 
-            // Log performance details 
-            performance.measure('API Sanity test', 'Beginning sanity test', 'Ending sanity test');
+           // Log performance details 
+           performance.measure('API Sanity test', 'Beginning sanity test', 'Ending sanity test');
 
-        })
-        .catch((err) => {
-            res.status(404).json({
-                'status': 404,
-                'error': err                
-            })
-            logger.error(`${err} (404)`);
-        });
+       })
+       .catch((err) => {
+           res.status(404).json({
+               'status': 404,
+               'error': err                
+           })
+           logger.error(`${err} (404)`);
+       });
 });
 
 export default router;

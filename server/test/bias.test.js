@@ -50,8 +50,6 @@ describe('Get the bias of media outlet', () => {
         DB_Outlet.should.be.a('object');
         CSV_Outlet.should.be.a('object');
         
-        console.log(DB_Outlet.bias);
-
         DB_Outlet.should.have.property('name');
         DB_Outlet.bias.should.be.equal(CSV_Outlet.bias);
 

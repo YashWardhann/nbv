@@ -150,3 +150,63 @@
 2019-09-15T06:49:10.788Z [info]: Sent article data to /0 (METHOD: POST)
 2019-09-15T06:49:10.789Z [warn]: [API Sanity test]: 303839.855ms (Violation by 228839.86ms)
 2019-09-15T06:49:50.767Z [info]: Listening to port 8080
+2019-09-18T15:42:51.737Z [info]: Listening to port 8080
+2019-09-18T15:42:51.792Z [info]: Incoming POST request to: /api/0
+2019-09-18T15:42:52.916Z [info]: Connected to Mongoose DB
+2019-09-18T15:42:54.843Z [info]: No articles found for Fox News
+2019-09-18T15:42:55.540Z [info]: No articles found for National Review
+2019-09-18T15:42:56.237Z [info]: No articles found for The American Conservative
+2019-09-18T15:42:56.942Z [info]: No articles found for The Washington Times
+2019-09-18T15:42:57.651Z [info]: No articles found for Breitbart News
+2019-09-18T15:43:34.466Z [info]: Listening to port 8080
+2019-09-18T15:43:35.621Z [info]: Connected to Mongoose DB
+2019-09-18T15:43:38.575Z [info]: Incoming GET request to: /api
+2019-09-18T15:43:38.962Z [info]: Incoming GET request to: /favicon.ico
+2019-09-18T15:43:47.785Z [info]: Incoming GET request to: /api/0
+2019-09-18T15:43:51.355Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-18T15:43:51.356Z [info]: [API Sanity test]: 19743.6741ms
+2019-09-18T15:44:34.640Z [info]: Listening to port 8080
+2019-09-18T15:44:35.773Z [info]: Connected to Mongoose DB
+2019-09-18T15:44:38.084Z [info]: Incoming GET request to: /api/0
+2019-09-18T15:44:41.452Z [info]: Sent article data to /0 (METHOD: GET)
+2019-09-18T15:44:41.453Z [info]: [API Sanity test]: 9703.0069ms
+2019-09-18T15:44:57.608Z [info]: Listening to port 8080
+2019-09-18T15:44:57.723Z [info]: Incoming POST request to: /api/0
+2019-09-18T15:45:01.668Z [info]: Connected to Mongoose DB
+2019-09-18T15:45:03.401Z [info]: No articles found for The Washington Times
+2019-09-18T15:45:04.112Z [info]: No articles found for The American Conservative
+2019-09-18T15:45:04.836Z [info]: No articles found for National Review
+2019-09-18T15:45:05.576Z [info]: No articles found for Breitbart News
+2019-09-18T15:45:06.371Z [info]: No articles found for Fox News
+2019-09-18T15:48:21.659Z [info]: Listening to port 8080
+2019-09-18T15:48:21.688Z [info]: Incoming POST request to: /api/0
+2019-09-18T15:48:22.802Z [info]: Connected to Mongoose DB
+2019-09-18T15:48:24.357Z [info]: No articles found for Fox News
+2019-09-18T15:48:25.013Z [info]: No articles found for National Review
+2019-09-18T15:48:25.684Z [info]: No articles found for The American Conservative
+2019-09-18T15:48:26.351Z [info]: No articles found for The Washington Times
+2019-09-18T15:48:27.003Z [info]: No articles found for Breitbart News
+2019-09-18T15:49:20.294Z [info]: Listening to port 8080
+2019-09-18T15:49:20.351Z [info]: Incoming POST request to: /api/0
+2019-09-18T15:49:21.419Z [info]: Connected to Mongoose DB
+2019-09-18T15:49:22.791Z [info]: No articles found for National Review
+2019-09-18T15:49:23.442Z [info]: No articles found for The Washington Times
+2019-09-18T15:49:24.117Z [info]: No articles found for The American Conservative
+2019-09-18T15:49:24.820Z [info]: No articles found for Breitbart News
+2019-09-18T15:49:25.492Z [info]: No articles found for Fox News
+2019-09-18T15:50:30.935Z [info]: Listening to port 8080
+2019-09-18T15:50:30.980Z [info]: Incoming POST request to: /api/0
+2019-09-18T15:50:32.058Z [info]: Connected to Mongoose DB
+2019-09-18T15:50:33.431Z [info]: No articles found for The American Conservative
+2019-09-18T15:50:34.077Z [info]: No articles found for Breitbart News
+2019-09-18T15:50:34.735Z [info]: No articles found for Fox News
+2019-09-18T15:50:35.393Z [info]: No articles found for The Washington Times
+2019-09-18T15:50:36.048Z [info]: No articles found for National Review
+2019-09-18T15:53:11.024Z [info]: Listening to port 8080
+2019-09-18T15:53:11.067Z [info]: Incoming POST request to: /api/0
+2019-09-18T15:53:12.192Z [info]: Connected to Mongoose DB
+2019-09-18T15:53:13.889Z [info]: No articles found for The Washington Times
+2019-09-18T15:53:14.542Z [info]: No articles found for The American Conservative
+2019-09-18T15:53:15.195Z [info]: No articles found for Fox News
+2019-09-18T15:53:15.852Z [info]: No articles found for Breitbart News
+2019-09-18T15:53:16.529Z [info]: No articles found for National Review

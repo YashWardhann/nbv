@@ -18,10 +18,10 @@ describe('Post article to /api/0', () => {
             .post('/api/0')        
             .set('content-type', 'application/x-www-form-urlencoded')
             .send({
-                text: 'House Democrats step up Trump impeachment inquiry', 
+                title: 'House Democrats step up Trump impeachment inquiry', 
                 url: 'bbc news'
             })
-            .end(function (err, res) {
+            .end(async function (err, res) {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('title');
@@ -31,4 +31,3 @@ describe('Post article to /api/0', () => {
     });
 });
 
-x
