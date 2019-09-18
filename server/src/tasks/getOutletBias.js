@@ -43,7 +43,6 @@ const getOutletBias = async function(sourceArticle) {
                         matched.distance = distance;
                     }
                 });
-
                 resolve(matched.bias);                
             }
         });

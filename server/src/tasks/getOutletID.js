@@ -9,17 +9,14 @@ const getOutletID = async function(outletName) {
             if (err) {
                 reject(err);
             }
-
             if(response.statusCode === 200) {
                 body = JSON.parse(body);
                 let sources = body.sources;
-
                 sources = sources.filter(function(source) {
                     if(source.name === outletName) {
                         return source;
                     }
                 });
-
                 if(sources.length && 'id' in sources[0]) {
                     resolve(sources[0].id);
                 } else {

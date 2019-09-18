@@ -9,8 +9,7 @@ import requestArticle from './requestArticle';
 // than the one given
 
 const fetchArticle = async (sourceArticle, sourceBias) => {
-    return new Promise((resolve, reject) => {
-        
+    return new Promise((resolve, reject) => {        
         // Get the bias of the new article based
         // on the bias of the source article
         const scores = new Map([
@@ -20,18 +19,16 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
             ['right-center', 1],
             ['right', 2]
         ]);
-        
+    
         const sourceScore = scores.get(sourceBias);
 
         // Stoes the new article fetched from Google News 
         const newArticle = { };
-        
         for (let [key, score] of scores) {
             if (score == sourceScore * -1) {
                 newArticle.bias = key;
             }
         }
-
         // Get an array of random media outlets 
         MediaListing.find({
             bias: newArticle.bias
@@ -41,9 +38,6 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
 
             // Shuffle the docs array for extra randomness 
             docs = shuffleArray(docs);
-
-            console.log(docs);
-
             let similarArticles = [];
             for (let doc of docs) {
                 try {
@@ -56,9 +50,7 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                             return current;
                         }
                     });
-
                     similarArticles.push(match);
-
                     // Ensure four articles have been selected
                     if (similarArticles.length) {
                         break;
@@ -70,16 +62,13 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                     console.log(similarArticles);
                 }
             }
-
             resolve({
                 status: 200,
                 title: similarArticles[0].title,
                 url: similarArticles[0].url,
                 bias: newArticle.bias
             });
-
         });
-
     })
 }
 
