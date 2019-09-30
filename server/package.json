@@ -6,7 +6,9 @@
   "scripts": {
     "start": "SET NODE_ENV = dev && node src/bin/dev",
     "test": "mocha",
-    "update": "node src/utils/PopulateDB"
+    "update": "node src/utils/PopulateDB", 
+    "build": "mkdir dist && babel src -s -d dist --copy-files", 
+    "production": "SET NODE_ENV = production && node dist/bin/dev"
   },
   "author": "Yashwardhann <stoner.spruce@gmail.com>",
   "license": "ISC",

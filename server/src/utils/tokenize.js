@@ -1,5 +1,4 @@
-import nlp from 'compromise';
-import shuffleArray from './shuffle';
+const nlp = require('compromise');
 
 // Returns an array whose each element is distinct
 function distinctArray (array) {
@@ -7,13 +6,13 @@ function distinctArray (array) {
         for (let j = 0; j < i; j++) {
            if(array[j].includes(array[i])) {
                 array.splice(i,1);
-           }
+           } 
         }
     }    
     return array;
 }
 
-const tokenize = function(sentence, options) {   
+const tokenize = function(sentence, options=  {returnType:'string'} ) {   
     // Returns an object of keywords containing
     // nouns, places, people, topics, titlecased words
     // which can be used to replicate search results
@@ -37,10 +36,13 @@ const tokenize = function(sentence, options) {
     let titlecased = doc.clauses().match('#TitleCase+').out('array');
     
     // Add all the arrays to the token array 
-    tokens = [...tokens, nouns, topics, titlecased];
+    tokens = [...tokens, topics, titlecased];
 
     // Flatten the array 
     tokens = Array.prototype.concat.apply([], tokens);
+
+    // Remove all duplicates from the array 
+    tokens = distinctArray(tokens)
 
     // Return the tokens in different formats based on 
     // what the return type mentioned is in function call
@@ -49,7 +51,7 @@ const tokenize = function(sentence, options) {
     } else if (options.returnType === 'string') {
         return tokens.join(' ');
     } else if (options.returnType === 'url') {
-        return tokens.join('+');
+        return encodeURIComponent(tokens.join('+'));
     }
 }
 

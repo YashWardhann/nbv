@@ -52,7 +52,7 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                     });
                     similarArticles.push(match);
                     // Ensure four articles have been selected
-                    if (similarArticles.length) {
+                    if (similarArticles.length > 3) {
                         break;
                     }
                 } catch (err) {
@@ -62,12 +62,21 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                     console.log(similarArticles);
                 }
             }
-            resolve({
-                status: 200,
-                title: similarArticles[0].title,
-                url: similarArticles[0].url,
-                bias: newArticle.bias
-            });
+
+            console.log(similarArticles);
+            if (similarArticles.length > 0 && 'title' in similarArticles[0]) {
+                resolve({
+                    status: 200,
+                    title: similarArticles[0].title,
+                    url: similarArticles[0].url,
+                    bias: newArticle.bias
+                });
+            } else {
+                resolve({
+                    status: 418, 
+                    error: 'No articles found'
+                });
+            }
         });
     })
 }

@@ -35,7 +35,7 @@ router.get('/0', async (req,res) => {
     });
         
     fetchArticle({
-        title: "House takes major step towards impeachment"
+        title: "The phases of Trumps coming impeachment proceedings"
     }, 'left')
         .then((newArticle) => {
             res.status(200).json(newArticle);

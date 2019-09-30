@@ -2,15 +2,18 @@ import request from 'request';
 import tokenize from './../utils/tokenize';
 import compareTokens from './../utils/compareTokens';
 import getOutletID from './getOutletID';
+import logger from '../config/winston';
 
 const requestArticle = async function (sourceArticle, source) {
     return new Promise(async(resolve, reject) => {
         try {
             const keywords = tokenize(sourceArticle.title, { returnType: "url" });
             let outletID = await getOutletID(source);
+            console.log(keywords)
             request(`https://newsapi.org/v2/everything?q=${keywords}&sources=${outletID}&apiKey=${process.env.NEWS_API_KEY}`,
                 function(err, response, body) {
                     if (err) {
+                        logger.error(err)
                         reject(err);
                     }
                     if (response.statusCode === 200) {
@@ -22,7 +25,6 @@ const requestArticle = async function (sourceArticle, source) {
                                 return article;
                             }
                         });
-
                         // Check if articles with specified conditions exist
                         if (articles.length) {
                             resolve(articles);
@@ -33,6 +35,7 @@ const requestArticle = async function (sourceArticle, source) {
                 }
             );
         } catch(err) {
+            console.log(err);
             reject(err);
         }
     });
