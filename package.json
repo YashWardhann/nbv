@@ -1,0 +1,41 @@
+{
+  "name": "news-bias-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "SET NODE_ENV = dev && node src/bin/dev",
+    "test": "mocha",
+    "update": "node src/utils/PopulateDB", 
+    "build": "mkdir dist && babel src -s -d dist --copy-files", 
+    "production": "SET NODE_ENV = production && node dist/bin/dev"
+  },
+  "author": "Yashwardhann <stoner.spruce@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.1.0",
+    "axios": "^0.19.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "compromise": "^11.14.3",
+    "dotenv": "^8.1.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1",
+    "natural": "^0.6.3",
+    "path": "^0.12.7",
+    "puppeteer": "^1.20.0",
+    "request": "^2.88.0",
+    "winston": "^3.2.1",
+    "xml2js": "^0.4.22"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0"
+  }
+}
