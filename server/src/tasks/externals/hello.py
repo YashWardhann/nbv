@@ -1,30 +1,15 @@
 import sys 
-import getopt
+import getopt 
 
-def main(): 
-    
-    usage = "usage: -f <source_text>"
-    dataStore = None
-    
+if __name__ == "__main__": 
     argv = sys.argv[1:]
-
-    try: 
-        opts, args = getopt.getopt(argv, "s:", ["source="])
-    except getopt.GetoptError as err: 
-        print(usage)
-        sys.exit(2)
     
-    for opt, arg in opts:
-        if opt in ['-s', '--source']: 
-            dataStore = arg
-        elif opt in ['-f', '--format']: 
-            dataStore = arg
-
-    index = []
-    for id, val in enumerate(dataStore): 
-        if val in ['a', 'e', 'i', 'o', 'u']: 
-            index.append(id)
-
-    for i in index: 
-        print(i, end=' ')
-main()
+    try: 
+        opts, args = getopt.getopt(argv, 't:', ['text='])
+    except getopt.GetoptError as err: 
+        print('usage: -t <sourcetext> OR --text=<sourcetext>')
+   
+    for opt, arg in opts: 
+        if opt in ['-t', '--text']: 
+            sourceText = arg 
+            print(sourceText[::-1])

@@ -2,23 +2,24 @@ const spawn = require('child_process').spawn;
 const path = require('path');
 
 function runScript() {
-    return spawn('python', [
-        '-u', 
-        path.join(__dirname, 'externals/hello.py'), 
-        '-s', 'yashwardhann'
-    ]);
+    return spawn("python", [
+        "-u", 
+        path.join(__dirname, "externals/hello.py"), 
+        '--text=Heythere!'
+    ])
 }
 
-const subprocess = runScript();
+const subProcess = runScript();
 
-subprocess.stdout.on('data', (data) => {
-    console.log(data.toString());
+subProcess.stdout.on('data', function(data) {
+    let dataStore = data;
+    console.log(dataStore.toString());
+})
+
+subProcess.stderr.on('err', function(err) {
+    console.log(`Error: ${err}`)
 });
 
-subprocess.stderr.on('data', (data) => {
-    console.log('Error: ', data);
-});
-
-subprocess.stderr.on('close', () => {
-    console.log('closed');
+subProcess.stderr.on('close', function() {
+    console.log('Process closed!')
 });
