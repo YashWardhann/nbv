@@ -6,7 +6,6 @@ from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 from nltk.collocations import *
 import nltk
-
 import random 
 
 if __name__ == "__main__": 
@@ -89,17 +88,14 @@ if __name__ == "__main__":
         # Calculates the final score for any word in the text 
         def _calculate_Score(self): 
             print('ok')
-        
 
     # Get the arguments 
     argv = sys.argv[1:] 
-    
     # Parse the argument vector 
     try: 
         opts, args = getopt.getopt(argv, "t:", ["text="])
     except getopt.GetoptError as err: 
         print("usage: -t <sometext> OR --text=<sometext>")
-    
     for opt, arg in opts: 
         if opt in ['-t', '--text']: 
             if len(arg) > 10: 
@@ -114,7 +110,8 @@ if __name__ == "__main__":
     rake._set_Sentences()
     rake._generate_Candidate_Expression()
     rake._generate_co_occurence_matrix()
-
+else: 
+    print('Error: Run as main')
 
 
 
