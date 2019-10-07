@@ -11,12 +11,14 @@ import random
 if __name__ == "__main__": 
 
     class RakeKeywordExtractor: 
-        def __init__(self, text = None): 
+        def __init__(self, text = None, options = None): 
             if text is None: 
                 print("Error: text is not set")
             else: 
                 # Stores the source text 
                 self.text = text.lower()
+                # Stores the user-defined options 
+                self.options = options
                 # Stores the list of stopwords
                 self.stopwords = [] 
                 # Stores the list of content words
@@ -42,7 +44,7 @@ if __name__ == "__main__":
             if len(self.stopwords) == 0: 
                 self._set_Stopwords()
             word_tokens = word_tokenize(self.text)
-            self.content_words = [w for w in word_tokens if w not in self.stopwords and not self._isPunct(w)] 
+            self.content_words = set([w for w in word_tokens if w not in self.stopwords and not self._isPunct(w)])
 
         # Sets the sentences in the text. Usually only 1
         def _set_Sentences(self): 
@@ -65,8 +67,8 @@ if __name__ == "__main__":
                         phrase.append(word)     
             print(self.phrases)                 
 
-        # Generte the matrix to calculate the final score 
-        def _generate_co_occurence_matrix(self): 
+        # Gets the bigrams in the phrases  
+        def getBigrams(self): 
             bigram_measure = nltk.collocations.BigramAssocMeasures()
             for phrase in self.phrases: 
                 if len(phrase) > 1: 
@@ -85,10 +87,12 @@ if __name__ == "__main__":
                 else: 
                     continue
         
-        # Calculates the final score for any word in the text 
-        def _calculate_Score(self): 
-            print('ok')
+        def _calculate_Scores(self):
+            word_tokens = word_tokenize(self.text)
+            # Calculate the frequency 
+            fdist_freq = FreqDist(word_tokens)
 
+                    
     # Get the arguments 
     argv = sys.argv[1:] 
     # Parse the argument vector 
@@ -104,12 +108,12 @@ if __name__ == "__main__":
                 print("error: text too small!")
                 sourceText = ''
 
-    rake = RakeKeywordExtractor(sourceText)
+    rake = RakeKeywordExtractor(sourceText, { 'getBigrams': False })
     rake._set_Stopwords()
     rake._set_Contentwords()
     rake._set_Sentences()
     rake._generate_Candidate_Expression()
-    rake._generate_co_occurence_matrix()
+    rake._calculate_Scores()
 else: 
     print('Error: Run as main')
 
