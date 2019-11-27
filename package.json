@@ -20,13 +20,13 @@
     "babel-register": "^6.26.0",
     "body-parser": "^1.19.0",
     "compromise": "^11.14.3",
-    "dotenv": "^8.1.0",
-    "ejs": "^2.7.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.12",
     "natural": "^0.6.3",
     "path": "^0.12.7",
-    "puppeteer": "^1.20.0",
+    "puppeteer": "^2.0.0",
     "request": "^2.88.0",
     "winston": "^3.2.1",
     "xml2js": "^0.4.22"
@@ -36,6 +36,6 @@
     "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^6.2.1"
+    "mocha": "^6.2.2"
   }
 }
