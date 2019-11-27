@@ -65,17 +65,14 @@ router.post('/0', urlencodedParser , async (req,res) => {
    const bias = await getOutletBias({
        url: 'bbc'
    });
-       
    fetchArticle({
        title: "House takes major step towards impeachment"
    }, 'left')
        .then((newArticle) => {
            res.status(200).json(newArticle);
            logger.info(`Sent article data to ${ req.url } (METHOD: ${ req.method })`);
-          
            // End performance test 
            performance.mark('Ending sanity test');
-
            // Log performance details 
            performance.measure('API Sanity test', 'Beginning sanity test', 'Ending sanity test');
 

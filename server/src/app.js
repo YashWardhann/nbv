@@ -13,7 +13,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Connect to mongoose db
 mongoose.connect('mongodb://admin:admin12@ds243897.mlab.com:43897/news-bias', {
-    useNewUrlParser: true
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
 })
 .then(() => {
     logger.info('Connected to Mongoose DB');
@@ -21,16 +22,13 @@ mongoose.connect('mongodb://admin:admin12@ds243897.mlab.com:43897/news-bias', {
 .catch((err) => {
     logger.error(err);
 });
-
 // Primary routes 
 app.use((req, res, next) => {
     logger.info(`Incoming ${req.method} request to: ${req.url}`);
     next();
 });
-
 // Mount the v1 api routes
 app.use('/api/', apiRoutes);
-
 // Allows to set alternative port during launch
 const altPort = (process.argv[2]) ? process.argv[2] : 8080;
 

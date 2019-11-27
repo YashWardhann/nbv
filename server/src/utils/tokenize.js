@@ -12,11 +12,10 @@ function distinctArray (array) {
     return array;
 }
 
-const tokenize = function(sentence, options=  {returnType:'string'} ) {   
+const tokenize = function(sentence, options={returnType:'string'} ) {   
     // Returns an object of keywords containing
     // nouns, places, people, topics, titlecased words
     // which can be used to replicate search results
-
     let tokens = [];
     let doc = nlp(sentence);
 

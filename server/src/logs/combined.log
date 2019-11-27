@@ -1,0 +1,37 @@
+2019-11-27T20:27:50.762Z [info]: Listening to port 8080
+2019-11-27T20:27:52.226Z [info]: Connected to Mongoose DB
+2019-11-27T20:28:18.507Z [info]: Listening to port 8080
+2019-11-27T20:28:19.740Z [info]: Connected to Mongoose DB
+2019-11-27T20:34:38.778Z [info]: Listening to port 8080
+2019-11-27T20:34:40.182Z [info]: Connected to Mongoose DB
+2019-11-27T20:34:42.131Z [info]: Incoming GET request to: /api
+2019-11-27T20:34:43.612Z [info]: Incoming GET request to: /favicon.ico
+2019-11-27T20:34:49.688Z [info]: Incoming GET request to: /v1
+2019-11-27T20:35:04.256Z [info]: Incoming GET request to: /api
+2019-11-27T20:35:09.085Z [info]: Incoming GET request to: /api/0
+2019-11-27T20:35:16.107Z [info]: No articles found for The Washington Times
+2019-11-27T20:35:25.830Z [info]: Sent article data to /0 (METHOD: GET)
+2019-11-27T20:35:25.835Z [info]: [API Sanity test]: 53479.4399ms
+2019-11-27T20:37:01.257Z [info]: Incoming GET request to: /api/0
+2019-11-27T20:37:04.244Z [info]: No articles found for The Washington Times
+2019-11-27T20:37:17.003Z [info]: Sent article data to /0 (METHOD: GET)
+2019-11-27T20:37:17.006Z [warn]: [API Sanity test]: 164649.845599ms (Violation by 89649.85ms)
+2019-11-27T20:42:13.545Z [info]: Listening to port 8080
+2019-11-27T20:42:14.733Z [info]: Connected to Mongoose DB
+2019-11-27T20:42:17.795Z [info]: Incoming GET request to: /api/0
+2019-11-27T20:42:21.146Z [info]: No articles found for The Washington Times
+2019-11-27T20:42:33.815Z [info]: Sent article data to /0 (METHOD: GET)
+2019-11-27T20:42:33.818Z [info]: [API Sanity test]: 26503.2186ms
+2019-11-27T20:42:49.620Z [info]: Listening to port 8080
+2019-11-27T20:42:50.844Z [info]: Connected to Mongoose DB
+2019-11-27T20:43:01.483Z [info]: Listening to port 8080
+2019-11-27T20:43:02.727Z [info]: Connected to Mongoose DB
+2019-11-27T20:47:37.493Z [info]: Listening to port 8080
+2019-11-27T20:47:38.679Z [info]: Connected to Mongoose DB
+2019-11-27T20:48:02.176Z [info]: Listening to port 8080
+2019-11-27T20:48:03.288Z [info]: Connected to Mongoose DB
+2019-11-27T20:51:32.037Z [info]: Listening to port 8080
+2019-11-27T20:51:33.281Z [info]: Connected to Mongoose DB
+2019-11-27T20:51:36.498Z [info]: Incoming GET request to: /api/0
+2019-11-27T20:51:50.761Z [info]: Sent article data to /0 (METHOD: GET)
+2019-11-27T20:51:50.764Z [info]: [API Sanity test]: 25043.529801ms

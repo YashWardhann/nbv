@@ -38,7 +38,7 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
 
             // Shuffle the docs array for extra randomness 
             docs = shuffleArray(docs);
-            let similarArticles = [];
+            let payload = [];
             for (let doc of docs) {
                 try {
                     console.log('Processing for', doc);
@@ -50,30 +50,29 @@ const fetchArticle = async (sourceArticle, sourceBias) => {
                             return current;
                         }
                     });
-                    similarArticles.push(match);
+                    payload.push(match);
                     // Ensure four articles have been selected
-                    if (similarArticles.length > 3) {
+                    if (payload.length > 3) {
                         break;
                     }
                 } catch (err) {
                     logger.info(`No articles found for ${doc}`);
                     continue;
                 } finally {
-                    console.log(similarArticles);
+                    console.log(payload);
                 }
             }
-
-            console.log(similarArticles);
-            if (similarArticles.length > 0 && 'title' in similarArticles[0]) {
+            console.log(payload);
+            if (payload.length > 0 && 'title' in payload[0]) {
                 resolve({
                     status: 200,
-                    title: similarArticles[0].title,
-                    url: similarArticles[0].url,
+                    title: payload[0].title,
+                    url: payload[0].url,
                     bias: newArticle.bias
                 });
             } else {
                 resolve({
-                    status: 418, 
+                    status: 418, // Switch to localized server 
                     error: 'No articles found'
                 });
             }
